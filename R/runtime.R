@@ -20,10 +20,13 @@ gf_runtime <- function(directory) {
     manifest <- .gf_decode(paste(readLines(member("runtime.json"), encoding = "UTF-8", warn = FALSE), collapse = "\n"))
     if (!all(vapply(c("schema_version", "abi", "sdk_contract"), function(key) is.numeric(manifest[[key]]) && length(manifest[[key]]) == 1L && !is.na(manifest[[key]]) && manifest[[key]] == 1, FALSE))) refuse("Unsupported runtime manifest, ABI or SDK contract.")
     host <- switch(Sys.info()[["sysname"]], Darwin = "macos", Linux = "linux", Windows = "windows", "unsupported")
+    if (host == "unsupported") refuse("GeneFox runtime bundles do not support this operating system.")
+    architecture <- manifest$architecture
+    if (!is.character(architecture) || length(architecture) != 1L || is.na(architecture) || !nzchar(architecture)) refuse("Runtime architecture must be one non-empty string.")
     arch <- tolower(Sys.info()[["machine"]])
     if (arch %in% c("amd64", "x64", "x86-64")) arch <- "x86_64"
     if (arch == "aarch64") arch <- "arm64"
-    if (!identical(manifest$platform, host) || !manifest$architecture %in% c(arch, if (host == "macos") "universal2")) refuse("This runtime does not match the current operating system and architecture.")
+    if (!identical(manifest$platform, host) || !architecture %in% c(arch, if (host == "macos") "universal2")) refuse("This runtime does not match the current operating system and architecture.")
     inventory <- manifest$files
     if (!is.list(inventory) || !length(inventory) || is.null(names(inventory))) refuse("The runtime has no file integrity inventory.")
     for (name in names(inventory)) {

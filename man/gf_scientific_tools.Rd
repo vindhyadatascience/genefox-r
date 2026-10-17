@@ -41,6 +41,7 @@
 \alias{gf_geo_series_expression}
 \alias{gf_geo_search}
 \alias{gf_geo_sample_pca}
+\alias{gf_geo_numeric_series}
 \alias{gf_geo_heatmap}
 \alias{gf_geo_gene_correlation}
 \alias{gf_geo_finder_plan}

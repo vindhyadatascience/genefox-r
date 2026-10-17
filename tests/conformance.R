@@ -15,6 +15,9 @@ if (nzchar(root) || nzchar(runtime)) {
         error <- tryCatch(gf_call(s, "not_a_genefox_tool"), genefox_error = identity)
         stopifnot(inherits(error, "genefox_error"), identical(error$code, "unknown_tool"))
         stopifnot("gene_info" %in% names(gf_tools(s)))
+        stopifnot(!("geo_numeric_series" %in% names(gf_tools(s))))
+        dark <- tryCatch(gf_geo_numeric_series(s, accession = "not-a-GSE", x_key = "dose", x_unit = "microM", probe = "p1", figure = FALSE), genefox_error = identity)
+        stopifnot(inherits(dark, "genefox_error"), identical(dark$code, "unknown_tool"))
         nonhuman <- tryCatch(gf_gene_info(s, gene = "7157", organism = "mouse"), genefox_error = identity)
         stopifnot(inherits(nonhuman, "genefox_error"), identical(nonhuman$code, "invalid_argument"), grepl("human", conditionMessage(nonhuman), fixed = TRUE))
         s$busy <- TRUE

@@ -18,7 +18,7 @@
     },
     "NAMESPACE": {
       "mode": "100644",
-      "sha256": "ffae285a5bbd84b26b5aa56fca3646d6efbbef7127f2f649ee1a93f2056c18d9"
+      "sha256": "b029ac7476308b844b8dd1648dbccf77a0b3f04f5ed8cee7c48a0384e2db129e"
     },
     "R/adapters.R": {
       "mode": "100644",
@@ -30,7 +30,7 @@
     },
     "R/generated.R": {
       "mode": "100644",
-      "sha256": "9c9365725ff7f45778c5151c105b0f90550ce98e50f540b98c786bc2e99bc8ae"
+      "sha256": "e9b4966bfc61c109b0c8bbd821ed8d6038dfc6cac477fe4b9392c3d963e1438b"
     },
     "R/imported.R": {
       "mode": "100644",
@@ -42,11 +42,11 @@
     },
     "R/runtime.R": {
       "mode": "100644",
-      "sha256": "0e118e989214448d1df6bd5796c68ee29275bfd015f8ca4c8d9b75a709f03e17"
+      "sha256": "b7084d0569b02b7dafe021e1eb4ab4234c9dbbc8fce0dc34508cc827ada64703"
     },
     "README.md": {
       "mode": "100644",
-      "sha256": "21aa7bb746da8bf35e5e371e13bb0bb74be52d7450fa94340fa133f91405d240"
+      "sha256": "c048e2e736d086fbbafe5e3cc51218794efc87cf2de4cd86e0fd10916c3a7ee1"
     },
     "inst/LICENSE-MIT": {
       "mode": "100644",
@@ -70,7 +70,7 @@
     },
     "man/gf_scientific_tools.Rd": {
       "mode": "100644",
-      "sha256": "f801b8b7c29020d1b8cf875239e064b7d4f0c65efd67d85b787a87f585075293"
+      "sha256": "0f2ad81dde379d692a05e634c6998588e7074417581c0777e65a659f1f95cc7b"
     },
     "man/gf_write_import.Rd": {
       "mode": "100644",
@@ -86,11 +86,11 @@
     },
     "tests/arrays.R": {
       "mode": "100644",
-      "sha256": "8c2cf64495c8ac14bcf12f2f74889c8c757cf4127de5ba519e03ad7801c62566"
+      "sha256": "c33357abd6232f4fa2b9a09f4c2b128696580a84f2072be5543510c0f4371119"
     },
     "tests/conformance.R": {
       "mode": "100644",
-      "sha256": "6ada339275b8b13f695f2cd7d178abf42e246c66ad2a842ef4c094698099f09d"
+      "sha256": "ac9845d5b59f4a3d8a977d01de43df5bb72ba028b314bc841af9458d63d3da5b"
     },
     "tests/framing.R": {
       "mode": "100644",
@@ -102,7 +102,7 @@
     },
     "tests/runtime.R": {
       "mode": "100644",
-      "sha256": "43cf9a9270a1f5eba6a16a0952f42c9c7c1d334f2bf91be1a5f306110f4a84ed"
+      "sha256": "4fd4c29f323aafd94c5c4cbbacd7236249e0ac571d4fbad5c3a178c07b1e9de3"
     }
   },
   "license": "MIT",
@@ -113,9 +113,9 @@
     "bundled": false,
     "license": "proprietary",
     "sdk_contract": 1,
-    "tool_catalogue_sha256": "3b437ccc3e2306815c0c67a175cad3b0cfa21b73f67a3f6456f34c3e9b7ded2f"
+    "tool_catalogue_sha256": "f4c3e4cf383f2d67cf0f5bd5ea3bdeadb809110011163fe009f8ae589159ab35"
   },
   "schema_version": 1,
-  "source_commit": "acee13172788410313eeedff4066acfc461d3403",
+  "source_commit": "a8e0dcc21b3793d243a0bcac470dacb14359e8e2",
   "source_path": "SDK/R/GeneFox"
 }

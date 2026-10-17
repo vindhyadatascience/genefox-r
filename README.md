@@ -35,6 +35,21 @@ and figure rendering; the R package preserves the results, provenance and figure
 See [GeneFox documentation](https://genefox.app/docs/) and [issues](https://github.com/vindhyadatascience/genefox-r/issues).
 The export's `genefox-source.json` records its source commit and runtime compatibility.
 
-To run conformance from this standalone checkout, set `GENEFOX_SDK_TEST_RUNTIME` to a
-verified matching runtime bundle. Python uses `python -m unittest discover -s tests`;
-R uses `R CMD check` or its `tests/conformance.R` with the installed package.
+Generated functions describe implemented tools; release flags and account grants still
+control availability. Inspect `names(gf_tools(session))` in an open session before calling
+a tool. A generated function does not enable a dark feature or grant access.
+
+To check the standalone R checkout, install the dependencies listed in DESCRIPTION,
+including the suggested packages for full interoperability coverage, and select a
+verified matching runtime bundle:
+
+```sh
+export GENEFOX_SDK_TEST_RUNTIME=/absolute/path/to/genefox-runtime
+R CMD build .
+GENEFOX_R_VERSION="$(Rscript -e 'cat(read.dcf("DESCRIPTION")[1, "Version"])')"
+R CMD check --no-manual "GeneFox_${GENEFOX_R_VERSION}.tar.gz"
+```
+
+Building the tarball applies the package's `.Rbuildignore` exclusions. The package
+check runs the files under `tests/`. Keep the runtime variable set to include the
+actual native and CLI transport checks.

@@ -13,4 +13,11 @@ tryCatch({
     stopifnot(is.list(single$genes), identical(single$genes, list("TP53")))
     empty <- jsonlite::fromJSON(gf_tcga_heatmap(NULL, project = "TCGA-BRCA", genes = character()), simplifyVector = FALSE)
     stopifnot(is.list(empty$genes), length(empty$genes) == 0L)
+    filters <- list(compound = c(treated = "Wy-14643"), tissue = c("liver", "kidney"), missing = character())
+    series <- jsonlite::fromJSON(gf_geo_numeric_series(NULL, accession = "GSE1", x_key = "dose", x_unit = "microM", filters = filters), simplifyVector = FALSE)
+    stopifnot(identical(series$filters, list(compound = list("Wy-14643"), tissue = list("liver", "kidney"), missing = list())))
+    # An object with scalar fields must retain its field names and scalar values.
+    destination <- list(kind = "tcga.survival", projectId = "TCGA-KIRC", gene = "CD276")
+    opened <- jsonlite::fromJSON(gf_open_destination(NULL, destination = destination), simplifyVector = FALSE)
+    stopifnot(identical(opened$destination, destination))
 }, finally = replace_call(original))
