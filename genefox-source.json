@@ -1,0 +1,121 @@
+{
+  "files": {
+    ".Rbuildignore": {
+      "mode": "100644",
+      "sha256": "2becaa3a4a1eceedc19bcae4bea48cc42e63245eb97639111ee9489cdefccdb5"
+    },
+    "CONTRIBUTING.md": {
+      "mode": "100644",
+      "sha256": "c53ada85419d3c4620eda1bb32dfa29d5b1a9a94b4ae60ec1247fbc8847b7b7e"
+    },
+    "DESCRIPTION": {
+      "mode": "100644",
+      "sha256": "700642568faca76b4f325dd0a03cd9d84c9a112721b895ed63d12f0f3552fb93"
+    },
+    "LICENSE": {
+      "mode": "100644",
+      "sha256": "9e8bbf4f433a1dcbfa9dede46306e48e512bd4e2ed32b4d440a9fabcff4753d0"
+    },
+    "NAMESPACE": {
+      "mode": "100644",
+      "sha256": "ffae285a5bbd84b26b5aa56fca3646d6efbbef7127f2f649ee1a93f2056c18d9"
+    },
+    "R/adapters.R": {
+      "mode": "100644",
+      "sha256": "5077a651f2b0aae0cbaa8174a41efc1c2acea45660daa4bf431be5d126e856a5"
+    },
+    "R/client.R": {
+      "mode": "100644",
+      "sha256": "2adb172e4162b53cf063d43d21bfa65cab53e03b590089cf1874e697e3fcd8ee"
+    },
+    "R/generated.R": {
+      "mode": "100644",
+      "sha256": "9c9365725ff7f45778c5151c105b0f90550ce98e50f540b98c786bc2e99bc8ae"
+    },
+    "R/imported.R": {
+      "mode": "100644",
+      "sha256": "9d674416f834981259d10fa312fda5604956faeb866186ed22bfb0f017398c9d"
+    },
+    "R/imports.R": {
+      "mode": "100644",
+      "sha256": "9c72d0a0fcb7740180c2a92f4da9b87f8476af73bd55df503471fed1797d0ab6"
+    },
+    "R/runtime.R": {
+      "mode": "100644",
+      "sha256": "0e118e989214448d1df6bd5796c68ee29275bfd015f8ca4c8d9b75a709f03e17"
+    },
+    "README.md": {
+      "mode": "100644",
+      "sha256": "21aa7bb746da8bf35e5e371e13bb0bb74be52d7450fa94340fa133f91405d240"
+    },
+    "inst/LICENSE-MIT": {
+      "mode": "100644",
+      "sha256": "b9140145332a75876bc8aa2d7252307dc3ae10b2c0d3eb364ff2caf17800c237"
+    },
+    "man/gf_client.Rd": {
+      "mode": "100644",
+      "sha256": "2244fe9da8fe116f2e3120e83e3482d7fea45d3a3dc757954612de9f295b042a"
+    },
+    "man/gf_experiment.Rd": {
+      "mode": "100644",
+      "sha256": "819c4a93aa81c0f46b427cc99e15a5e3068d20969fe8e6372d709d219cf33639"
+    },
+    "man/gf_import_experiment.Rd": {
+      "mode": "100644",
+      "sha256": "c893c05b0cfaedd7ff53563dd66306987571bd051b2ea02f64eb873a0fbac081"
+    },
+    "man/gf_runtime.Rd": {
+      "mode": "100644",
+      "sha256": "45ec5a35c7e52d393be62cb40250f5ffe56e06e319b5452e3eed052533819457"
+    },
+    "man/gf_scientific_tools.Rd": {
+      "mode": "100644",
+      "sha256": "f801b8b7c29020d1b8cf875239e064b7d4f0c65efd67d85b787a87f585075293"
+    },
+    "man/gf_write_import.Rd": {
+      "mode": "100644",
+      "sha256": "4ec79052346c1ce0a7b19c6eb7415992844659ab1550f3dd3e69e03890c37de8"
+    },
+    "src/Makevars": {
+      "mode": "100644",
+      "sha256": "1b39fd422b1f1ffd42ec0efc54e4e2a262f103d6bd1497fa9e2d3df03a60725b"
+    },
+    "src/bridge.c": {
+      "mode": "100644",
+      "sha256": "9c28e1495ad50e05d96a7d08c27e1aefb953ebe06606fb1684e9e60880c04573"
+    },
+    "tests/arrays.R": {
+      "mode": "100644",
+      "sha256": "8c2cf64495c8ac14bcf12f2f74889c8c757cf4127de5ba519e03ad7801c62566"
+    },
+    "tests/conformance.R": {
+      "mode": "100644",
+      "sha256": "6ada339275b8b13f695f2cd7d178abf42e246c66ad2a842ef4c094698099f09d"
+    },
+    "tests/framing.R": {
+      "mode": "100644",
+      "sha256": "c85c39644d2f6461327676cba3852ec27f62f4066fd7638a34c8ef6223c5e249"
+    },
+    "tests/imports.R": {
+      "mode": "100644",
+      "sha256": "c27a5143e967af8724d2f0f484f63c81129dee260dcb4c7cb8bf263608681556"
+    },
+    "tests/runtime.R": {
+      "mode": "100644",
+      "sha256": "43cf9a9270a1f5eba6a16a0952f42c9c7c1d334f2bf91be1a5f306110f4a84ed"
+    }
+  },
+  "license": "MIT",
+  "package_version": "0.0.1.9000",
+  "repository": "https://github.com/vindhyadatascience/genefox-r",
+  "runtime": {
+    "abi": 1,
+    "bundled": false,
+    "license": "proprietary",
+    "sdk_contract": 1,
+    "tool_catalogue_sha256": "3b437ccc3e2306815c0c67a175cad3b0cfa21b73f67a3f6456f34c3e9b7ded2f"
+  },
+  "schema_version": 1,
+  "source_commit": "acee13172788410313eeedff4066acfc461d3403",
+  "source_path": "SDK/R/GeneFox"
+}
