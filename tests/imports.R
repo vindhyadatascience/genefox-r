@@ -1,4 +1,4 @@
-library(GeneFox)
+library(genefox)
 # Ordinary R matrices need neither Bioconductor nor an installed external framework.
 dense <- matrix(c(1.25, 3.5, 2.5, 4.5), 2L, dimnames = list(c("B", "A"), c("S2", "S1")))
 samples <- data.frame(group = c("control", "treated"), row.names = c("S1", "S2"))
@@ -39,40 +39,6 @@ if (requireNamespace("SummarizedExperiment", quietly = TRUE)) {
         stopifnot(inherits(try(gf_write_import(experiment, paste0(folder, "-invalid"), assay = "logcounts", scale = "auto"), silent = TRUE), "try-error"), !dir.exists(paste0(folder, "-invalid")))
     }, finally = unlink(folder, recursive = TRUE))
 }
-
-# The convenience hook owns only its temporary interchange input; the configured
-# runtime store owns persistence. Check success, refusal and cleanup without a grant.
-namespace <- asNamespace("GeneFox")
-originals <- lapply(c("gf_tools", "gf_imported_data_import"), get, envir = namespace)
-names(originals) <- c("gf_tools", "gf_imported_data_import")
-replace_binding <- function(name, value) {
-    unlockBinding(name, namespace)
-    assign(name, value, envir = namespace)
-    lockBinding(name, namespace)
-}
-output <- tempfile("genefox-import-hook-")
-dir.create(output)
-session <- list(output = output)
-tryCatch({
-    replace_binding("gf_tools", function(session) list(imported_data_import = list()))
-    replace_binding("gf_imported_data_import", function(session, manifest_path, display_name) {
-        stopifnot(file.exists(manifest_path), identical(normalizePath(dirname(dirname(manifest_path)), winslash = "/"), normalizePath(output, winslash = "/")))
-        text <- paste(readLines(manifest_path, warn = FALSE), collapse = "\n")
-        list(payload = list(data = list(dataset_id = "owned-store-reference", manifest_json = text)))
-    })
-    imported <- gf_import_experiment(session, plain, assay = "expression", scale = "linear")
-    stopifnot(inherits(imported, "gf_imported_experiment"), identical(imported$dataset_id, "owned-store-reference"),
-        identical(jsonlite::fromJSON(imported$manifest_json)$assay$name, "expression"), length(list.files(output, all.files = TRUE, no.. = TRUE)) == 0L)
-    replace_binding("gf_imported_data_import", function(...) stop("shared importer refused"))
-    stopifnot(inherits(try(gf_import_experiment(session, plain, assay = "expression", scale = "linear"), silent = TRUE), "try-error"),
-        length(list.files(output, all.files = TRUE, no.. = TRUE)) == 0L)
-    replace_binding("gf_tools", function(session) list())
-    stopifnot(inherits(try(gf_import_experiment(session, plain, assay = "expression", scale = "linear"), silent = TRUE), "try-error"),
-        length(list.files(output, all.files = TRUE, no.. = TRUE)) == 0L)
-}, finally = {
-    for (name in names(originals)) replace_binding(name, originals[[name]])
-    unlink(output, recursive = TRUE)
-})
 
 if (requireNamespace("SummarizedExperiment", quietly = TRUE)) {
     constructor <- getExportedValue(methods::getClassDef("Seqinfo")@package, "Seqinfo")

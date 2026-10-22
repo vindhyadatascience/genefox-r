@@ -6,11 +6,11 @@
     },
     "CONTRIBUTING.md": {
       "mode": "100644",
-      "sha256": "c53ada85419d3c4620eda1bb32dfa29d5b1a9a94b4ae60ec1247fbc8847b7b7e"
+      "sha256": "90ce6f7b272eb9d2c39e300d18c4829a9b94c6feecbfdcd472780dacbc983203"
     },
     "DESCRIPTION": {
       "mode": "100644",
-      "sha256": "700642568faca76b4f325dd0a03cd9d84c9a112721b895ed63d12f0f3552fb93"
+      "sha256": "46b2b793094e5c1f24e6903325da9760a1f1a5b51b216b5c9471fe9d0dd3f7d2"
     },
     "LICENSE": {
       "mode": "100644",
@@ -18,7 +18,7 @@
     },
     "NAMESPACE": {
       "mode": "100644",
-      "sha256": "b029ac7476308b844b8dd1648dbccf77a0b3f04f5ed8cee7c48a0384e2db129e"
+      "sha256": "f3082fdf9a8ca4388ff22f9fca7bef2fdb919270afdb120d8c106d7aa9069c2a"
     },
     "R/adapters.R": {
       "mode": "100644",
@@ -26,19 +26,19 @@
     },
     "R/client.R": {
       "mode": "100644",
-      "sha256": "2adb172e4162b53cf063d43d21bfa65cab53e03b590089cf1874e697e3fcd8ee"
+      "sha256": "4f91347726b6bce79dc78d82432bb7516c7bdf5a0dbcabbbb983150e5ed77b62"
     },
     "R/generated.R": {
       "mode": "100644",
-      "sha256": "e9b4966bfc61c109b0c8bbd821ed8d6038dfc6cac477fe4b9392c3d963e1438b"
-    },
-    "R/imported.R": {
-      "mode": "100644",
-      "sha256": "9d674416f834981259d10fa312fda5604956faeb866186ed22bfb0f017398c9d"
+      "sha256": "9119f32e95eec144dc82ba752ea999413a05b24fd356193624811cb97ee717f2"
     },
     "R/imports.R": {
       "mode": "100644",
       "sha256": "9c72d0a0fcb7740180c2a92f4da9b87f8476af73bd55df503471fed1797d0ab6"
+    },
+    "R/result_contracts.R": {
+      "mode": "100644",
+      "sha256": "1461e8935e9adda7d3afa5b3ea7df0eecbb6f8a4381aa5cc817e1ec822b726b1"
     },
     "R/runtime.R": {
       "mode": "100644",
@@ -46,23 +46,387 @@
     },
     "README.md": {
       "mode": "100644",
-      "sha256": "c048e2e736d086fbbafe5e3cc51218794efc87cf2de4cd86e0fd10916c3a7ee1"
+      "sha256": "a696620bf07bea6abcba699636dbe3a8daad688fccb31f5911b79026d90d06bb"
     },
     "inst/LICENSE-MIT": {
       "mode": "100644",
       "sha256": "b9140145332a75876bc8aa2d7252307dc3ae10b2c0d3eb364ff2caf17800c237"
     },
+    "inst/NOTICE": {
+      "mode": "100644",
+      "sha256": "4d0a87c592ef8ad460b364ffb9f0e4507e65223631e14b3b5635e70a4bac9c66"
+    },
+    "inst/contracts/account-status-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "b12d9d3d930d669231b044c49185711eedb4bfda4acbff4cf2ead34fc7e12806"
+    },
+    "inst/contracts/cbioportal-alterations-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "3adb0973e0505d7d510c5007831bf93407c04885d834d9c153024153b68e837d"
+    },
+    "inst/contracts/cbioportal-composition-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "ba6cd31f4e77f5b56964c9b32075b0d09cd025971e632070bc0a7e100a7c5cfc"
+    },
+    "inst/contracts/cbioportal-cross-study-mutations-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "57d18a06a98940b486db29424f47566d2357be231dae2cacd1407de6ea0ac341"
+    },
+    "inst/contracts/cbioportal-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "8311c76c9feb50303826601d5cb396357b97c4a7833f6a92ed664f8e73341cbe"
+    },
+    "inst/contracts/cbioportal-mutation-burden-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "a1c42e5249953add01212d60770a18a7bcf6426697677afe4d1ad1bc5e212dcf"
+    },
+    "inst/contracts/cbioportal-significantly-mutated-genes-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "802af8dc6febec81c71379418410234d609aead3504ed2dd1404c31074306c8a"
+    },
+    "inst/contracts/cbioportal-structural-variants-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "094347e596de04b358bc628b84e4d527a183f41414dc9a59d5917637f73cbacf"
+    },
+    "inst/contracts/cbioportal-studies-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "c7985e497e0fbae18895505e6ed3d806133c9e28fd44e9ba71497e97b5874e0c"
+    },
+    "inst/contracts/cbioportal-treatment-counts-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "9702a288423b4e770c75a8b49ed350784cfdf7fe9272c8a13407d153350d2eb1"
+    },
+    "inst/contracts/gene-info-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "29a2e52901f7d7b41f952cce7926e8cc74af305988ffc27a491b4483506227db"
+    },
+    "inst/contracts/geo-chat-schema-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "6a4623f8e481918a6690715f4d879e4cd5dd9fa6da1e244b7ead9a54e7677292"
+    },
+    "inst/contracts/geo-collection-summary-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "f093bd8d42e42caed6b34ebff971da7ebf288b220d524c2681b22119f8bf3353"
+    },
+    "inst/contracts/geo-dataset-details-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "e45d5348b2b6c11f80dca814ecde900996248ed0035aed0b45f7f89dbb87f246"
+    },
+    "inst/contracts/geo-finder-plan-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "d75e9315562b6583b6422dbde144e75d13936db01dc1664ea3e7a7366722942d"
+    },
+    "inst/contracts/geo-gene-correlation-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "c5dfb80f5df919d4f4636884d1a97bcc51d2783d178060c2e07556b8652826ce"
+    },
+    "inst/contracts/geo-heatmap-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "3c1c32a6603dc77dd3c81068bafe1236ea475369a870caf477277d3c6b1cbe1c"
+    },
+    "inst/contracts/geo-sample-pca-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "7b79e399f0b4d3b998f40e7078e04f47fc8a8131af28eebc3683767fe8878721"
+    },
+    "inst/contracts/geo-search-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "2a2310b093b1d3bc7a474adf97badaf5cb523a9183ae409c4246f4813ec76a96"
+    },
+    "inst/contracts/geo-series-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "072d02c157764587d1b4e744770ef7292d90d6321c1d44180ea66a0f2328f5a2"
+    },
+    "inst/contracts/geo-supplementary-layout-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "8daf3dc8a75ea2e89fddcb01e4b689484e0d7c44a75b0a14d02d0fbdc6aa498c"
+    },
+    "inst/contracts/geo-survival-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "a37b12e179cebf7a1331b481d15c7b73124e7d11d39ab7c1079e77c749a8134d"
+    },
+    "inst/contracts/geo-top-correlates-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "34ff2787d3deb1f67cd90ae7b0bf6c9aff75d69d62b1961db9076e9cb4ebb382"
+    },
+    "inst/contracts/gtex-tissue-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "d3cc28a6d5cbcd4c9cdb368929e606795d0fac90adaa17984b043ce577dfffb2"
+    },
+    "inst/contracts/imported-de-enrichment-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "5353498156454b28ae9f63cfffd2f3188c02713f69f307855f5644693674faa0"
+    },
+    "inst/contracts/list-coverage-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "b4d5087d66f00a11a7956d2618f1dc1d8952174aaa2cb5fe407332d516314f44"
+    },
+    "inst/contracts/list-operations-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "7c1c3392f4df15b76f00aa2cf07fbd4e400eb86172a0f3ec6a3e3d0e35cb7b30"
+    },
+    "inst/contracts/list-signature-presets-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "36bdf8e49cc8410a6f733b126fc53e9025b165ec889f4aafd938122589719898"
+    },
+    "inst/contracts/open-destination-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "f6541828527acec2ac67e24730bc898ccf7492b81a7860ff5fb14199a4e441bd"
+    },
+    "inst/contracts/reference-ccle-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "c16c9475b4a4d87ca74f5495f42d372f1a33afeca5f5e09a4fe5c6b2bddf010d"
+    },
+    "inst/contracts/reference-expression-atlas-catalog-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "96df9ddafcd18fd7c779caba430c88dc3d0b1723e675cbe44aca5ca273344039"
+    },
+    "inst/contracts/reference-expression-atlas-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "11ee42c6b8f82b2477919bb32623e80720aa0a9f07d49a177e9a4b94b02c7788"
+    },
+    "inst/contracts/reference-treehouse-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "2851948150ce5af549c8d7ed7d2ac59b74bb09478f1d093c3cc61542ea7943fe"
+    },
+    "inst/contracts/report-table-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "656b974efad15615f0cf9a76bbfb6f9b4bfb89d409225a25ea5cbdd862d67389"
+    },
+    "inst/contracts/result-schemas-v1.json": {
+      "mode": "100644",
+      "sha256": "4de6419986508ce26b6552697c318d05810482ae68ba25f7cebf231082e09c44"
+    },
+    "inst/contracts/survival-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "5cc585757bb72e7405e023043198e4d93028d251b56744fad78f04e10b1fe45f"
+    },
+    "inst/contracts/tcga-case-detail-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "224ad383b42096e7d9d1b10763accaa3550c33aba1d4eebb6911a551df3b8f2a"
+    },
+    "inst/contracts/tcga-case-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "b79c510e745fbb09c44ba6ac82aec20956e91d2aa8830c43d1866dbcff1a572a"
+    },
+    "inst/contracts/tcga-cases-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "a96d3134dbc332a50ca94107cc651a709c103ec31b7c3cb1f876e787dd0fea1d"
+    },
+    "inst/contracts/tcga-chat-schema-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "638ab037d60a284a502d857699c79c505b7807869f38504a6ef49452a63c3bd3"
+    },
+    "inst/contracts/tcga-cohort-summary-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "9f00dc129a4e2d139e745a7ad7f7704246fda524546b0f9ae62f582e516646bc"
+    },
+    "inst/contracts/tcga-compare-cohorts-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "253d6672760975316197144ad0868532cdc0f4a2098f6e488a9c1203a24fc4df"
+    },
+    "inst/contracts/tcga-differential-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "f4b10058c9589426b6e71ef0eee959ea5b19148c4ad94a4e3ab5b1d8002bc5c9"
+    },
+    "inst/contracts/tcga-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "8ba4dd2a6d07d55fe7196f4d1061e0ae28ddbf6da8367064577b4672308c6c9a"
+    },
+    "inst/contracts/tcga-gene-isoforms-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "ea40e326d7cd9f08a7bfcb1807541c6d0524da26fe31989e940f858aa6d7d0de"
+    },
+    "inst/contracts/tcga-gene-signature-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "70fbc14248b3989c6c63e35673511c52f3c00f12abcd83befb25e709ddc0e89e"
+    },
+    "inst/contracts/tcga-heatmap-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "7a9379752e7a2a6e3595d7f229155f46518b71c78c6e623a71f724200cbefbfb"
+    },
+    "inst/contracts/tcga-pan-cancer-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "630430fa86141ee7b8014c91eacbd7d4f1bf13e38c4b1ae8e7b677a099a69eb7"
+    },
+    "inst/contracts/tcga-pan-cancer-survival-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "d4f122c31eeb85169b26b9a829df6e2ef353cf11cd4065ff88e71fc033295540"
+    },
+    "inst/contracts/tcga-projects-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "9f828f841d867e268f375c029cb122df417d8bab060915cfc484dac97e6eeacd"
+    },
+    "inst/contracts/tcga-sample-pca-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "994ce59c2f18d193589b405502b0b27d25b42678362cbf95fad88384966f9cbe"
+    },
+    "inst/contracts/tcga-survival-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "708dedced4210b5bdb1354f7e011fbaa92fe16e06f3e78272ff9895d85367e62"
+    },
+    "inst/contracts/tcga-top-correlates-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "545d58d3f6ae00ff5df3b9ea39bafd539523fc1e8d5163e082dd08f234bf07ab"
+    },
+    "inst/contracts/tcga-tumor-normal-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "1577c154ed0c5ddb3bd2ea70eeeadbb2153ab87ae1dc52d3292f873189fc6e29"
+    },
+    "inst/contracts/tool-error-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "ff4a8b9f5d0dd381a1b72ae63c067148baf3f35841cd914325c94b82b6e07d38"
+    },
+    "inst/contracts/tool-figure-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "e29fc20c09bcc9ba6bc153b97b33f770ab259346cc34f0903c28476fcda2ee1c"
+    },
+    "inst/contracts/tool-provenance-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "08f671bb28004bd990179acd897b3355a54da173141da5625a6236246afb5c13"
+    },
+    "man/gf_account_status.Rd": {
+      "mode": "100644",
+      "sha256": "b66b55be7a451974ae13d1499e5ff055249ff95010ee03afc1ee0235b3510e8a"
+    },
+    "man/gf_cbioportal_alterations.Rd": {
+      "mode": "100644",
+      "sha256": "59ddb40c2c93632b6dc47e04cc480e6a305a3995ba392608dce56b5883043abb"
+    },
+    "man/gf_cbioportal_composition.Rd": {
+      "mode": "100644",
+      "sha256": "49bb11e42bbcb766a4cb96fa1ceb51ca3cbcfb63e9e344a9658566e24b0799ba"
+    },
+    "man/gf_cbioportal_cross_study_mutations.Rd": {
+      "mode": "100644",
+      "sha256": "cb7ca0b285d3aa6166a17e758bdd159d6cd137dc234755195e8a8df823b5ae7f"
+    },
+    "man/gf_cbioportal_expression.Rd": {
+      "mode": "100644",
+      "sha256": "03dedd6d48126d0f851fb4b91c9a239e1a306ac8ca28fbd199d4435d0d1e7edf"
+    },
+    "man/gf_cbioportal_mutation_burden.Rd": {
+      "mode": "100644",
+      "sha256": "207e7c245ba6a3f471655963a1f105fbf653bbb028708fd47cf06ed845a08a79"
+    },
+    "man/gf_cbioportal_significantly_mutated_genes.Rd": {
+      "mode": "100644",
+      "sha256": "041134a25c1276f7ca3afa5495623d3c5c403ae932543712989e324e92e624d9"
+    },
+    "man/gf_cbioportal_structural_variants.Rd": {
+      "mode": "100644",
+      "sha256": "07389ff18a672f6c211a821ab119a0726324e20f00ff194a98e7343d02b66eac"
+    },
+    "man/gf_cbioportal_studies.Rd": {
+      "mode": "100644",
+      "sha256": "b82c00d40f07adab54e1270f79176e284993e232345717fa4666e6a7dca8d239"
+    },
+    "man/gf_cbioportal_treatment_counts.Rd": {
+      "mode": "100644",
+      "sha256": "d4d1aca55be43fb4b715b12e6637ba40ac35bd0a06e606e020875577b6eb368c"
+    },
     "man/gf_client.Rd": {
       "mode": "100644",
-      "sha256": "2244fe9da8fe116f2e3120e83e3482d7fea45d3a3dc757954612de9f295b042a"
+      "sha256": "432ecba0eb03f741cdc3235cd2fafefe375a5f974031bb98e10b28c2dfcd95bb"
     },
     "man/gf_experiment.Rd": {
       "mode": "100644",
       "sha256": "819c4a93aa81c0f46b427cc99e15a5e3068d20969fe8e6372d709d219cf33639"
     },
-    "man/gf_import_experiment.Rd": {
+    "man/gf_gene_info.Rd": {
       "mode": "100644",
-      "sha256": "c893c05b0cfaedd7ff53563dd66306987571bd051b2ea02f64eb873a0fbac081"
+      "sha256": "fd3bb48ab536faa0d6e3aa88c86acf3bb2c2b4c636e0ae3e086e396e8a7c411f"
+    },
+    "man/gf_geo_chat_schema.Rd": {
+      "mode": "100644",
+      "sha256": "975bb5295d6150e6e035b2211a960fea4121aa2241660206bad7efd2107c487c"
+    },
+    "man/gf_geo_collection_summary.Rd": {
+      "mode": "100644",
+      "sha256": "155de0f0bd6f7e645649f57b10f870ebaa3ee70dc3ad993719cd0015065e711d"
+    },
+    "man/gf_geo_dataset_details.Rd": {
+      "mode": "100644",
+      "sha256": "6202730802317412d90c303eb524c244af48151fd7f163b520321a2c8b353241"
+    },
+    "man/gf_geo_finder_plan.Rd": {
+      "mode": "100644",
+      "sha256": "7f3bb75e898830ce157ffddc8430b4a436ca8ddb155d9e093cecb7bbea717ea2"
+    },
+    "man/gf_geo_gene_correlation.Rd": {
+      "mode": "100644",
+      "sha256": "ab52e90d9a172c5988f3d8e76caced8e06cda23c73c3d69d7da0cec4f25299a4"
+    },
+    "man/gf_geo_heatmap.Rd": {
+      "mode": "100644",
+      "sha256": "c20179db531188d45a50320c2a100dbb0e9b0b716d0b13d8db5453119807d8bb"
+    },
+    "man/gf_geo_sample_pca.Rd": {
+      "mode": "100644",
+      "sha256": "f655124328454a72ac607f09184c88e9422e62fd62a7d58c3d75c41c637e746d"
+    },
+    "man/gf_geo_search.Rd": {
+      "mode": "100644",
+      "sha256": "75432aa6e1be4de5cb7bf5c8c4301777723743903eab38db788fae8853d6485a"
+    },
+    "man/gf_geo_series_expression.Rd": {
+      "mode": "100644",
+      "sha256": "a11039a5b59e24c3176017842376244da797436e15865b8b7709fb2d3aa9681c"
+    },
+    "man/gf_geo_supplementary_layout.Rd": {
+      "mode": "100644",
+      "sha256": "977edfd81194d0c7a339d83ca54e142221dbc67a4df6fc8fa437c8d8bd3a2ed5"
+    },
+    "man/gf_geo_survival.Rd": {
+      "mode": "100644",
+      "sha256": "5ed3a06e659c4fc9ac0fc293731183c58d29d34e036bc09537ed3f1bd04582bd"
+    },
+    "man/gf_geo_top_correlates.Rd": {
+      "mode": "100644",
+      "sha256": "fb612c8a811835f056c79f621e3a34c94dce20aa047709e2b621a82388552794"
+    },
+    "man/gf_gtex_tissue_expression.Rd": {
+      "mode": "100644",
+      "sha256": "9628aad75cbcad92792425b7584c608a07c5e2397a8752240f2530390fc1867c"
+    },
+    "man/gf_imported_de_enrichment.Rd": {
+      "mode": "100644",
+      "sha256": "70497bc4a881cb414a18fb2f4784cbaa7540aa5b5dd7e11ba8a8b4480274935f"
+    },
+    "man/gf_list_coverage.Rd": {
+      "mode": "100644",
+      "sha256": "b5f950e0db588b2f558d28117122e7b1779294b4a4076dcd93e5e93660cb3b8c"
+    },
+    "man/gf_list_operations.Rd": {
+      "mode": "100644",
+      "sha256": "541dffae618fa8278654ea3b1747bd243c3a3170946bb5d095cdc34f96af1dc5"
+    },
+    "man/gf_list_signature_presets.Rd": {
+      "mode": "100644",
+      "sha256": "97ad4d96d9c4dcc96e7cd51b8236f042f8164d47d2d14ee86722c83cedadfbd8"
+    },
+    "man/gf_open_destination.Rd": {
+      "mode": "100644",
+      "sha256": "3cc1ffb8f7122f3ce9c427dc46e6f5bdf33971effe7be5cc2a353720b3259bf1"
+    },
+    "man/gf_reference_ccle_expression.Rd": {
+      "mode": "100644",
+      "sha256": "cf37dfadb969e1d54a7748fe948df3866a262a1deeae601a9a8dfe7655fee9bc"
+    },
+    "man/gf_reference_expression_atlas.Rd": {
+      "mode": "100644",
+      "sha256": "8da29db47b936a6ae49bc9b29aa0e138d25924a2c5745b25a9d0fc66d1329706"
+    },
+    "man/gf_reference_expression_atlas_catalog.Rd": {
+      "mode": "100644",
+      "sha256": "d0da2338cedb2586ff3aeecdd2848911c235133d5c3bd36e144070719a712a32"
+    },
+    "man/gf_reference_treehouse_expression.Rd": {
+      "mode": "100644",
+      "sha256": "6775c7527067f9623f98ed4145c533c01d9d85d5838905be66789dfd3cc04663"
+    },
+    "man/gf_result_schemas.Rd": {
+      "mode": "100644",
+      "sha256": "a0d94410adb099cabd98c4cd72f0956c0d73de381bcf31ba4dce1280bb0e11bd"
     },
     "man/gf_runtime.Rd": {
       "mode": "100644",
@@ -70,7 +434,79 @@
     },
     "man/gf_scientific_tools.Rd": {
       "mode": "100644",
-      "sha256": "0f2ad81dde379d692a05e634c6998588e7074417581c0777e65a659f1f95cc7b"
+      "sha256": "94a960120a52a893620bfb1dcdcfd056a4e95b0202aac9de4ab25ab268021169"
+    },
+    "man/gf_tcga_case_detail.Rd": {
+      "mode": "100644",
+      "sha256": "0fbcde942e08c6581e7fd22ca812e6ef6d8ace81620f7485f2a2fe1f4ace307e"
+    },
+    "man/gf_tcga_case_expression.Rd": {
+      "mode": "100644",
+      "sha256": "cb5271f393f1e7fd0f6a11903e8333852422c2f5d1d9d5ae76b3e1f3e3f5894d"
+    },
+    "man/gf_tcga_cases.Rd": {
+      "mode": "100644",
+      "sha256": "306b7be631759eb80f2fcd811a52318d20bd5e0055e68fc6af4fbbdc89b25d2a"
+    },
+    "man/gf_tcga_chat_schema.Rd": {
+      "mode": "100644",
+      "sha256": "7c39c91808513609aa6e717dbe4ba9b1588338d46da7b135a7af5421ffa527ea"
+    },
+    "man/gf_tcga_cohort_summary.Rd": {
+      "mode": "100644",
+      "sha256": "fab5b4b33c5e2b1adeca778ef48be5bcee22d354d8e3ad54309e3e41be435250"
+    },
+    "man/gf_tcga_compare_cohorts.Rd": {
+      "mode": "100644",
+      "sha256": "267792adafe04b756fe390fb8d1f8da7c7e8ced1e0bb45ffff3da009908f285a"
+    },
+    "man/gf_tcga_differential_expression.Rd": {
+      "mode": "100644",
+      "sha256": "d4960fd9a5365730ae17cc8f23f0dbb9f37b2cb95fd3fa0d0ee3b5f709e83229"
+    },
+    "man/gf_tcga_expression.Rd": {
+      "mode": "100644",
+      "sha256": "2530e0165fb9391bffa8447d11a2f413355c56bcedc1e2285d31277c2523f374"
+    },
+    "man/gf_tcga_gene_isoforms.Rd": {
+      "mode": "100644",
+      "sha256": "3efbefd0597c4e51b9c60643bb15cf09fc51e5e0076c570850e1255f93457ed9"
+    },
+    "man/gf_tcga_gene_signature.Rd": {
+      "mode": "100644",
+      "sha256": "4fb8d65de092f2fe013e029a3ed3fa13304c2105edb05b93f85df233eb20036a"
+    },
+    "man/gf_tcga_heatmap.Rd": {
+      "mode": "100644",
+      "sha256": "81c3d2df66ea91da6b3beaf7802269ddd2ea51203dd14479235381fd39dba0ab"
+    },
+    "man/gf_tcga_pan_cancer_expression.Rd": {
+      "mode": "100644",
+      "sha256": "6c60081094149d0547ebcc9e90c47191badb2b046400bfe7cb222964634f4cab"
+    },
+    "man/gf_tcga_pan_cancer_survival.Rd": {
+      "mode": "100644",
+      "sha256": "4906308431eeedad4287347d70268d8aebd6edf6fda63d7086c481dd7d383939"
+    },
+    "man/gf_tcga_projects.Rd": {
+      "mode": "100644",
+      "sha256": "448f7349adaa3a985a022ef1f684fa71744182bf807b60d695e665f233bbf0dc"
+    },
+    "man/gf_tcga_sample_pca.Rd": {
+      "mode": "100644",
+      "sha256": "652c6c02c39eb4029e370fc6bcf7f16474eb56f9915477811687dbb2f2723368"
+    },
+    "man/gf_tcga_survival.Rd": {
+      "mode": "100644",
+      "sha256": "a0b3cf223fafbde30f186a09022adab495c5b71af5c5ec81af71a60fd9ab0089"
+    },
+    "man/gf_tcga_top_correlates.Rd": {
+      "mode": "100644",
+      "sha256": "cacf00f352e4cf355f2aae62d9ef3db1d562c949feb1ae299c3abc5831dc31cc"
+    },
+    "man/gf_tcga_tumor_normal.Rd": {
+      "mode": "100644",
+      "sha256": "df09e459dd67e7a3c7aaa73500a82dbbefab621137d2670269f403c659c0e429"
     },
     "man/gf_write_import.Rd": {
       "mode": "100644",
@@ -82,40 +518,44 @@
     },
     "src/bridge.c": {
       "mode": "100644",
-      "sha256": "9c28e1495ad50e05d96a7d08c27e1aefb953ebe06606fb1684e9e60880c04573"
+      "sha256": "05c7f195bbca6aadf45cd3dad04487414dbee64dbc8f620859816962afa8e040"
     },
     "tests/arrays.R": {
       "mode": "100644",
-      "sha256": "c33357abd6232f4fa2b9a09f4c2b128696580a84f2072be5543510c0f4371119"
+      "sha256": "7f4895ed56c895c0b693b50870dba5e52003c540f27f708525323039f70b3c18"
     },
     "tests/conformance.R": {
       "mode": "100644",
-      "sha256": "ac9845d5b59f4a3d8a977d01de43df5bb72ba028b314bc841af9458d63d3da5b"
+      "sha256": "6b82e9a1d8c9a43241e7e5b21cc573c9ca271bd9f30eb22ba90e3aa5d721257f"
     },
     "tests/framing.R": {
       "mode": "100644",
-      "sha256": "c85c39644d2f6461327676cba3852ec27f62f4066fd7638a34c8ef6223c5e249"
+      "sha256": "cc285f34596a6503fc264f564a5303927495c5df4b310f3d917f12aabc948f86"
     },
     "tests/imports.R": {
       "mode": "100644",
-      "sha256": "c27a5143e967af8724d2f0f484f63c81129dee260dcb4c7cb8bf263608681556"
+      "sha256": "05f7cb5eb681a5dd2622828dc14640ea9d9d0accee89783a8407040f5c2ab1cf"
+    },
+    "tests/result_contracts.R": {
+      "mode": "100644",
+      "sha256": "235e9b78db3c361b248bfce6ba9a811213cf481e4455d21633e0af36bd58fdc0"
     },
     "tests/runtime.R": {
       "mode": "100644",
-      "sha256": "4fd4c29f323aafd94c5c4cbbacd7236249e0ac571d4fbad5c3a178c07b1e9de3"
+      "sha256": "a89c9faa8a9687d8401d58782ed2f5c79ba7e9af60ffc739a0eee6f4b3e2b9fb"
     }
   },
   "license": "MIT",
-  "package_version": "0.0.1.9000",
+  "package_version": "0.1.0",
   "repository": "https://github.com/vindhyadatascience/genefox-r",
   "runtime": {
     "abi": 1,
     "bundled": false,
     "license": "proprietary",
     "sdk_contract": 1,
-    "tool_catalogue_sha256": "f4c3e4cf383f2d67cf0f5bd5ea3bdeadb809110011163fe009f8ae589159ab35"
+    "tool_catalogue_sha256": "63913e8992ae8d2d0c6485fcd112f5b8089007d578b09c3aaeb0a3bab907932c"
   },
   "schema_version": 1,
-  "source_commit": "a8e0dcc21b3793d243a0bcac470dacb14359e8e2",
-  "source_path": "SDK/R/GeneFox"
+  "source_commit": "9b6f3fa3f5b4527d855dd5d232548bcaea75f406",
+  "source_path": "genefox-r"
 }

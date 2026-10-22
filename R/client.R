@@ -27,7 +27,7 @@ gf_session <- function(resources = NULL, output, library = Sys.getenv("GENEFOX_N
     if (length(allow_roots)) config$allow_roots <- unname(as.list(vapply(allow_roots, .gf_path, "")))
     if (backend == "native") {
         if (!nzchar(library)) stop("Provide library= or GENEFOX_NATIVE_LIBRARY.")
-        s$native <- .Call("gf_open", normalizePath(library, mustWork = TRUE), .gf_json(config), PACKAGE = "GeneFox")
+        s$native <- .Call("gf_open", normalizePath(library, mustWork = TRUE), .gf_json(config), PACKAGE = "genefox")
     } else {
         if (!requireNamespace("processx", quietly = TRUE)) stop("CLI transport requires processx.")
         args <- c("mcp", "--no-model-tools", "--resources", config$resources, "--output-dir", config$output)
@@ -40,7 +40,7 @@ gf_session <- function(resources = NULL, output, library = Sys.getenv("GENEFOX_N
     reg.finalizer(s, function(x) try(gf_close(x), silent = TRUE), onexit = TRUE)
     tryCatch({
         init <- .gf_request(s, "initialize", list(protocolVersion = "2024-11-05", capabilities = structure(list(), names = character()),
-            clientInfo = list(name = "genefox-r", version = "0.0.1.9000")))
+            clientInfo = list(name = "genefox-r", version = as.character(utils::packageVersion("genefox")))))
         if (!identical(init$protocolVersion, "2024-11-05")) stop("Unsupported GeneFox protocol contract.")
         s$runtime <- init$serverInfo
         .gf_send(s, list(jsonrpc = "2.0", method = "notifications/initialized"))
@@ -54,7 +54,7 @@ gf_session <- function(resources = NULL, output, library = Sys.getenv("GENEFOX_N
     if (s$closed) .gf_abort(list(code = "closed", message = "GeneFox session is closed."))
     encoded <- .gf_json(message)
     if (s$backend == "native") {
-        if (.Call("gf_submit_native", s$native, encoded, PACKAGE = "GeneFox") != 0L) stop("Native request was not admitted.")
+        if (.Call("gf_submit_native", s$native, encoded, PACKAGE = "genefox") != 0L) stop("Native request was not admitted.")
     } else s$process$write_input(paste0(encoded, "\n"))
 }
 # Drain partial output before requiring a newline: a large JSON line must not
@@ -80,7 +80,7 @@ gf_session <- function(resources = NULL, output, library = Sys.getenv("GENEFOX_N
     deadline <- proc.time()[["elapsed"]] + timeout
     repeat {
         if (s$backend == "native") {
-            value <- .Call("gf_event_native", s$native, PACKAGE = "GeneFox")
+            value <- .Call("gf_event_native", s$native, PACKAGE = "genefox")
             if (!is.null(value)) return(.gf_decode(value))
         } else {
             s$process$poll_io(0L)
@@ -144,7 +144,7 @@ gf_call <- function(session, tool, arguments = list(), progress = NULL) {
     structure(list(payload = payload, provenance = payload$provenance, caveats = payload$caveats, figures = figures), class = "gf_result")
 }
 .gf_artifact <- function(s, path) {
-    if (s$backend == "native") return(.Call("gf_artifact_native", s$native, path, PACKAGE = "GeneFox"))
+    if (s$backend == "native") return(.Call("gf_artifact_native", s$native, path, PACKAGE = "genefox"))
     actual <- normalizePath(path, winslash = "/", mustWork = TRUE)
     root <- normalizePath(s$output, winslash = "/", mustWork = TRUE)
     if (!startsWith(actual, paste0(root, "/")) || nzchar(Sys.readlink(path))) stop("Artifact path refused.")
@@ -156,7 +156,7 @@ gf_call <- function(session, tool, arguments = list(), progress = NULL) {
 gf_close <- function(session) {
     if (session$closed) return(invisible(NULL))
     session$closed <- TRUE
-    if (session$backend == "native") .Call("gf_close_native", session$native, PACKAGE = "GeneFox")
+    if (session$backend == "native") .Call("gf_close_native", session$native, PACKAGE = "genefox")
     else { try(session$process$close_input(), silent = TRUE); session$process$wait(1000L); if (session$process$is_alive()) session$process$kill_tree() }
     invisible(NULL)
 }

@@ -1,30 +1,35 @@
-library(GeneFox)
-root <- Sys.getenv("GENEFOX_SDK_TEST_ROOT")
+library(genefox)
+stopifnot(identical(unname(getNamespaceName(asNamespace("genefox"))), "genefox"))
+dll <- getLoadedDLLs()[["genefox"]]
+stopifnot(!is.null(dll), identical(dll[["dynamicLookup"]], FALSE))
+registered <- getDLLRegisteredRoutines(dll)[[".Call"]]
+stopifnot(identical(names(registered), c("gf_open", "gf_close_native", "gf_submit_native", "gf_event_native", "gf_artifact_native")))
+stopifnot(identical(vapply(registered, function(routine) routine$numParameters, 0L),
+    c(gf_open = 2L, gf_close_native = 1L, gf_submit_native = 2L, gf_event_native = 1L, gf_artifact_native = 2L)))
+# A staged runtime bundle, or an explicit library, CLI and resources folder; never a guess.
 runtime <- Sys.getenv("GENEFOX_SDK_TEST_RUNTIME")
-if (nzchar(root) || nzchar(runtime)) {
-    lib <- Sys.getenv("GENEFOX_SDK_TEST_LIBRARY", file.path(root, ".build/sdk-projection/.build/debug/libFoxCoreFFI.dylib"))
-    cli <- Sys.getenv("GENEFOX_SDK_TEST_BIN", file.path(root, ".build/sdk-projection/.build/debug/genefox"))
+lib <- Sys.getenv("GENEFOX_SDK_TEST_LIBRARY")
+cli <- Sys.getenv("GENEFOX_SDK_TEST_BIN")
+resources <- Sys.getenv("GENEFOX_SDK_TEST_RESOURCES")
+if (nzchar(runtime) || (nzchar(lib) && nzchar(cli) && nzchar(resources))) {
     values <- list()
     for (backend in c("native", "cli")) {
         message("GeneFox R conformance backend: ", backend)
         s <- if (nzchar(runtime)) {
             gf_session(runtime = runtime, output = tempfile("gf-conformance-"), backend = backend, timeout = 30)
         } else {
-            gf_session(file.path(root, "Sources/Locus/Resources"), tempfile("gf-conformance-"), library = lib, binary = cli, backend = backend, timeout = 30)
+            gf_session(resources, tempfile("gf-conformance-"), library = lib, binary = cli, backend = backend, timeout = 30)
         }
         error <- tryCatch(gf_call(s, "not_a_genefox_tool"), genefox_error = identity)
         stopifnot(inherits(error, "genefox_error"), identical(error$code, "unknown_tool"))
         stopifnot("gene_info" %in% names(gf_tools(s)))
-        stopifnot(!("geo_numeric_series" %in% names(gf_tools(s))))
-        dark <- tryCatch(gf_geo_numeric_series(s, accession = "not-a-GSE", x_key = "dose", x_unit = "microM", probe = "p1", figure = FALSE), genefox_error = identity)
-        stopifnot(inherits(dark, "genefox_error"), identical(dark$code, "unknown_tool"))
         nonhuman <- tryCatch(gf_gene_info(s, gene = "7157", organism = "mouse"), genefox_error = identity)
         stopifnot(inherits(nonhuman, "genefox_error"), identical(nonhuman$code, "invalid_argument"), grepl("human", conditionMessage(nonhuman), fixed = TRUE))
         s$busy <- TRUE
         busy <- tryCatch(gf_call(s, "list_operations"), genefox_error = identity)
         s$busy <- FALSE
         stopifnot(inherits(busy, "genefox_error"), identical(busy$code, "client_busy"))
-        stopifnot(all(vapply(names(gf_tools(s)), function(name) exists(paste0("gf_", name), envir = asNamespace("GeneFox"), inherits = FALSE), FALSE)))
+        stopifnot(all(vapply(names(gf_tools(s)), function(name) exists(paste0("gf_", name), envir = asNamespace("genefox"), inherits = FALSE), FALSE)))
         operations <- gf_list_operations(s)
         stopifnot(length(operations$payload) == 5L, identical(dim(gf_table(operations)), c(5L, 4L)), grepl("\u2014", operations$payload[[5L]]$summary, fixed = TRUE))
         table <- paste(c("gene\tlog2FoldChange\tpValue", "TP53\t1\t0.01", "MDM2\t-1\t0.01", "ESR1\t0\t0.01", paste0("G", 3:499, "\t0\t1")), collapse = "\n")

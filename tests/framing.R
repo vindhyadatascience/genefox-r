@@ -1,5 +1,5 @@
-library(GeneFox)
-feed <- getFromNamespace(".gf_queue_cli_output", "GeneFox")
+library(genefox)
+feed <- getFromNamespace(".gf_queue_cli_output", "genefox")
 s <- new.env(parent = emptyenv()); s$queue <- list(); s$output_buffer <- raw()
 payload <- paste0('{"jsonrpc":"2.0","id":2,"result":{"text":"', paste(rep("x", 140000L), collapse = ""), '\u03b2"}}')
 bytes <- charToRaw(paste0(payload, "\n", '{"jsonrpc":"2.0","id":3,"result":{}}', "\n"))

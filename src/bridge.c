@@ -118,4 +118,4 @@ static const R_CallMethodDef methods[] = {
     {"gf_submit_native", (DL_FUNC)&gf_submit_native, 2}, {"gf_event_native", (DL_FUNC)&gf_event_native, 1},
     {"gf_artifact_native", (DL_FUNC)&gf_artifact_native, 2}, {NULL, NULL, 0}
 };
-void attribute_visible R_init_GeneFox(DllInfo *dll) { R_registerRoutines(dll, NULL, methods, NULL, NULL); R_useDynamicSymbols(dll, FALSE); }
+void attribute_visible R_init_genefox(DllInfo *dll) { R_registerRoutines(dll, NULL, methods, NULL, NULL); R_useDynamicSymbols(dll, FALSE); }

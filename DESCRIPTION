@@ -1,10 +1,9 @@
-Package: GeneFox
+Package: genefox
 Type: Package
 Title: Client for the Shared GeneFox Scientific Runtime
-Version: 0.0.1.9000
-Authors@R: person("Vindhya Data Science", role = c("aut", "cre"), email = "info@vindhyadatascience.com")
-Author: Vindhya Data Science [aut, cre]
-Maintainer: Vindhya Data Science <info@vindhyadatascience.com>
+Version: 0.1.0
+Authors@R: person("Vindhya Data Science", role = c("aut", "cre", "cph"),
+    email = "info@vindhyadatascience.com")
 Description: Access the GeneFox scientific runtime through its native C SDK or
     an optional persistent command-line transport. Preserve engine results,
     provenance and figures in ordinary R workflows.
@@ -14,5 +13,8 @@ Depends: R (>= 4.1.0)
 Imports: jsonlite, digest, methods, grid, tools, stats, utils
 Suggests: processx, tibble, data.table, SummarizedExperiment, S4Vectors, GenomicRanges, IRanges, png, knitr
 NeedsCompilation: yes
+SystemRequirements: C compiler; the separately installed, proprietary GeneFox
+    scientific runtime (native SDK library, ABI 1) or the genefox
+    command-line tool, version 1.1.0 or later.
 URL: https://github.com/vindhyadatascience/genefox-r, https://genefox.app
 BugReports: https://github.com/vindhyadatascience/genefox-r/issues

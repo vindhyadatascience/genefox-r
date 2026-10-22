@@ -1,4 +1,4 @@
-library(GeneFox)
+library(genefox)
 folder <- tempfile("genefox-runtime-"); dir.create(folder)
 tryCatch({
     dir.create(file.path(folder, "Resources"))
@@ -22,7 +22,7 @@ tryCatch({
     manifest$abi <- 1; manifest$platform <- "wrong"; save_manifest(); refuses(function() gf_runtime(folder))
     manifest$platform <- selected$manifest$platform
     # Exercise host labels without loading a foreign binary or changing the package namespace.
-    original_runtime <- get("gf_runtime", asNamespace("GeneFox"))
+    original_runtime <- get("gf_runtime", asNamespace("genefox"))
     original_environment <- environment(original_runtime)
     runtime_for_host <- function(system, machine) {
         check <- original_runtime
@@ -59,7 +59,7 @@ tryCatch({
         manifest$platform <- "unsupported"; manifest$architecture <- "x86_64"; save_manifest()
         refuses_compatibility(function() check(folder))
     }
-    stopifnot(identical(environment(get("gf_runtime", asNamespace("GeneFox"))), original_environment))
+    stopifnot(identical(environment(get("gf_runtime", asNamespace("genefox"))), original_environment))
     manifest <- saved_manifest; save_manifest()
     for (name in c("../escape", "/absolute", "C:/escape", "Resources/../native", "Resources\\native")) {
         manifest$library <- name; save_manifest(); refuses(function() gf_runtime(folder))
