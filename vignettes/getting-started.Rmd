@@ -1,0 +1,25 @@
+---
+title: "Getting started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Install GeneFox CLI 1.1.2 or newer using the [CLI installation guide](https://genefox.app/docs/install/). The CLI includes the proprietary GeneFox runtime.
+
+Then install the package from its GitHub release:
+
+```r
+remotes::install_url("https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz")
+```
+
+```{r, eval=FALSE}
+library(genefox)
+s <- gf_session(runtime = "path/to/runtime", output = "output")
+status <- gf_account_status(s)
+```
+
+## Result contracts
+
+- `account_status`: <https://genefox.app/schemas/v1/account-status-result-v1.schema.json>

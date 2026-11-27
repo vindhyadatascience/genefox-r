@@ -1,0 +1,298 @@
+---
+title: "Getting started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Install GeneFox CLI 1.1.2 or newer using the [CLI installation guide](https://genefox.app/docs/install/). The CLI includes the proprietary GeneFox runtime.
+
+Then install the package from its GitHub release:
+
+```r
+remotes::install_url("https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz")
+```
+
+```{r, eval=FALSE}
+library(genefox)
+s <- gf_session(runtime = "path/to/runtime", output = "output")
+status <- gf_account_status(s)
+```
+
+## Result contracts
+
+- `account_status`: <https://genefox.app/schemas/v1/account-status-result-v1.schema.json>
+
+
+---
+title: "TCGA and GDC"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TCGA and GDC}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Find GDC projects and plot one gene's expression by sample type.
+
+Cold-start time: `tcga_projects` 1–3 s, `tcga_expression` 5–40 s; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+projects <- gf_tcga_projects(s, search = "BRCA")
+expression <- gf_tcga_expression(
+    s,
+    project = "TCGA-BRCA",
+    gene = "ESR1",
+    stratify = "sample_type",
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+table <- gf_table(expression)
+tibble <- gf_to_tibble(table)
+```
+
+![ESR1 expression in TCGA-BRCA by sample type, as box plots (`tcga_expression`, 300 dpi)](figures/tcga-expression.png)
+
+## Result contracts
+
+- `tcga_projects`: <https://genefox.app/schemas/v1/tcga-projects-result-v1.schema.json>
+- `tcga_expression`: <https://genefox.app/schemas/v1/tcga-expression-result-v1.schema.json>
+
+
+---
+title: "GEO"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{GEO}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Search GEO, read a series' samples, and plot one gene across them.
+
+On a microarray series a gene can match several probes. GeneFox then refuses the call and lists the candidates; pass one as `probe`, as below for MYCN.
+
+Cold-start time: `geo_search` 2–10 s, `geo_dataset_details` 1–5 s, `geo_series_expression` 10 s–3 min; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+hits <- gf_geo_search(s, query = "neuroblastoma")
+details <- gf_geo_dataset_details(s, accession = "GSE16476")
+expression <- gf_geo_series_expression(
+    s,
+    accession = "GSE16476",
+    probe = "209757_s_at",
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+```
+
+![MYCN (probe 209757_s_at) expression across the samples of GSE16476 (`geo_series_expression`, 300 dpi)](figures/geo-series-expression.png)
+
+## Result contracts
+
+- `geo_search`: <https://genefox.app/schemas/v1/geo-search-result-v1.schema.json>
+- `geo_dataset_details`: <https://genefox.app/schemas/v1/geo-dataset-details-result-v1.schema.json>
+- `geo_series_expression`: <https://genefox.app/schemas/v1/geo-series-expression-result-v1.schema.json>
+
+
+---
+title: "cBioPortal"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{cBioPortal}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+List curated studies, read a study's composition, and count one gene's alterations.
+
+Alteration counts cover the whole study, not an expression subset.
+
+Cold-start time: `cbioportal_studies` 1–10 s, `cbioportal_composition` 5–60 s, `cbioportal_alterations` 5–60 s; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+studies <- gf_cbioportal_studies(s)
+composition <- gf_cbioportal_composition(s, study_id = "openpedcan_v15")
+alterations <- gf_cbioportal_alterations(
+    s,
+    study_id = "openpedcan_v15",
+    gene = "TP53"
+)
+```
+
+## Result contracts
+
+- `cbioportal_studies`: <https://genefox.app/schemas/v1/cbioportal-studies-result-v1.schema.json>
+- `cbioportal_composition`: <https://genefox.app/schemas/v1/cbioportal-composition-result-v1.schema.json>
+- `cbioportal_alterations`: <https://genefox.app/schemas/v1/cbioportal-alterations-result-v1.schema.json>
+
+
+---
+title: "ArrayExpress"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ArrayExpress}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Search ArrayExpress studies, read a study record, and load its processed expression.
+
+Studies that publish only raw data cannot be loaded.
+
+Cold-start time: `arrayexpress_search` 1–5 s, `arrayexpress_details` 2–10 s, `arrayexpress_expression` 5–30 s; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+hits <- gf_arrayexpress_search(s, query = "spinal and bulbar muscular atrophy")
+details <- gf_arrayexpress_details(s, accession = "E-MTAB-6986")
+expression <- gf_arrayexpress_expression(s, accession = "E-MTAB-6986")
+```
+
+## Result contracts
+
+- `arrayexpress_search`: <https://genefox.app/schemas/v1/arrayexpress-search-result-v1.schema.json>
+- `arrayexpress_details`: <https://genefox.app/schemas/v1/arrayexpress-details-result-v1.schema.json>
+- `arrayexpress_expression`: <https://genefox.app/schemas/v1/arrayexpress-expression-result-v1.schema.json>
+
+
+---
+title: "Survival"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Survival}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Compare TCGA overall survival between patients split at the median expression of one gene.
+
+Cold-start time: `tcga_survival` 5–30 s; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+survival <- gf_tcga_survival(
+    s,
+    project = "TCGA-BRCA",
+    gene = "ESR1",
+    stratify = "expression",
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+```
+
+![Kaplan-Meier curves for TCGA-BRCA split at median ESR1 expression (`tcga_survival`, 300 dpi)](figures/tcga-survival.png)
+
+## Result contracts
+
+- `tcga_survival`: <https://genefox.app/schemas/v1/tcga-survival-result-v1.schema.json>
+
+
+---
+title: "Sample PCA"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Sample PCA}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Project a cohort's samples onto principal components. PCA describes structure; it is not a test.
+
+Cold-start time: `tcga_sample_pca` 30 s–5 min; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+pca <- gf_tcga_sample_pca(
+    s,
+    project = "TCGA-BRCA",
+    color_by = "sample_type",
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+```
+
+![TCGA-BRCA samples on the first two principal components, colored by sample type (`tcga_sample_pca`, 300 dpi)](figures/tcga-sample-pca.png)
+
+## Result contracts
+
+- `tcga_sample_pca`: <https://genefox.app/schemas/v1/tcga-sample-pca-result-v1.schema.json>
+
+
+---
+title: "Differential expression and enrichment"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Differential expression and enrichment}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Compare a gene panel between TCGA tumor and normal samples, or analyze a complete DE table you computed.
+
+Panel DE tests only the genes you list; it is not a genome-wide analysis.
+
+Enrichment needs the complete tested table, including nonsignificant genes: at least 500 distinct symbols with raw p-values. It does not recompute DE.
+
+Cold-start time: `tcga_differential_expression` 10–60 s; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+de <- gf_tcga_differential_expression(
+    s,
+    project = "TCGA-BRCA",
+    mode = "tumor_vs_normal",
+    genes = c("ESR1", "GATA3", "FOXA1", "XBP1", "TFF1", "KRT5", "KRT14", "EGFR", "ERBB2", "MKI67", "TOP2A", "FOXM1"),
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+text <- paste(readLines("complete-de.tsv"), collapse = "\n")
+enrichment <- gf_imported_de_enrichment(
+    s,
+    table = text,
+    source = "precomputed DE",
+    comparison = "treated versus control",
+    complete_universe = TRUE
+)
+```
+
+![Volcano plot of a 12-gene panel, TCGA-BRCA tumor versus normal (`tcga_differential_expression`, 300 dpi)](figures/tcga-differential-expression.png)
+
+## Result contracts
+
+- `tcga_differential_expression`: <https://genefox.app/schemas/v1/tcga-differential-expression-result-v1.schema.json>
+- `imported_de_enrichment`: <https://genefox.app/schemas/v1/imported-de-enrichment-result-v1.schema.json>
+
+
+---
+title: "Figures and local expression"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Figures and local expression}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Figure tools take `format` (`png`, `svg` or `tiff`), `dpi`, and either a `size` preset or `width_in` with `height_in`. Tools that support it also return a recipe with `recipe = TRUE`.
+
+Local expression data converts to and from GeneFox's import format without analysis.
+
+```{r, eval=FALSE}
+base <- "path/to/local-expression"  # matrix.tsv, samples.tsv, experiment.json
+matrix <- as.matrix(read.delim(file.path(base, "matrix.tsv"), row.names = 1, check.names = FALSE))
+samples <- read.delim(file.path(base, "samples.tsv"), row.names = 1, check.names = FALSE)
+x <- gf_experiment(list(logcounts = matrix), units = c(logcounts = "log2_cpm"), sample_metadata = samples)
+se <- gf_to_se(x)  # needs SummarizedExperiment
+manifest <- gf_write_import(x, tempfile("genefox-import-"), assay = "logcounts", scale = "log2")
+
+# Save the figure of any figure-producing result:
+gf_save_figure(result$figures[[1]], "figure.png")
+```

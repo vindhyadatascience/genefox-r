@@ -1,0 +1,676 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "description": "Successful result for geo_numeric_series. Structured failures use tool-error-v1.schema.json. Unknown extension fields are retained.",
+  "properties": {
+    "caveats": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "csv": {
+      "additionalProperties": true,
+      "oneOf": [
+        {
+          "additionalProperties": true,
+          "properties": {
+            "headers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "headers"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": true,
+          "properties": {
+            "untrusted_headers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "untrusted_headers"
+          ],
+          "type": "object"
+        }
+      ],
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "columns": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "headers_truncated": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "rows": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_name",
+        "bytes",
+        "sha256",
+        "rows",
+        "columns"
+      ],
+      "type": "object"
+    },
+    "csv_unavailable": {
+      "type": "string"
+    },
+    "data": {
+      "additionalProperties": true,
+      "properties": {
+        "band": {
+          "enum": [
+            "none",
+            "sd",
+            "sem",
+            "ci95"
+          ],
+          "type": "string"
+        },
+        "center": {
+          "enum": [
+            "median",
+            "mean"
+          ],
+          "type": "string"
+        },
+        "excluded_by_filters": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "library_sizes": {
+          "additionalProperties": true,
+          "properties": {
+            "excluded": {
+              "type": "boolean"
+            },
+            "excluded_count": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "low_depth_count": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "low_depth_fraction": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "low_depth_samples": {
+              "items": {
+                "additionalProperties": true,
+                "oneOf": [
+                  {
+                    "additionalProperties": true,
+                    "properties": {
+                      "sample": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "sample"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": true,
+                    "properties": {
+                      "untrusted_sample": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "untrusted_sample"
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "properties": {
+                  "library_size": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "sample": {
+                    "type": "string"
+                  },
+                  "untrusted_sample": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "library_size"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "low_depth_samples_truncated": {
+              "type": "boolean"
+            },
+            "low_depth_threshold": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "maximum": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "median": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "minimum": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "samples": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "samples",
+            "low_depth_count",
+            "excluded_count",
+            "median",
+            "minimum",
+            "maximum",
+            "low_depth_fraction",
+            "low_depth_threshold",
+            "low_depth_samples_truncated",
+            "excluded",
+            "low_depth_samples"
+          ],
+          "type": "object"
+        },
+        "log_x": {
+          "type": "boolean"
+        },
+        "method_hints": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "advisory_only": {
+                "const": true,
+                "type": "boolean"
+              },
+              "code": {
+                "type": "string"
+              },
+              "evidence": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              "message": {
+                "type": "string"
+              },
+              "rule": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message",
+              "advisory_only",
+              "evidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "normalization": {
+          "type": "string"
+        },
+        "normalization_method": {
+          "type": "string"
+        },
+        "samples": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "summaries": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "center": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "lower": {
+                "anyOf": [
+                  {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "n": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "untrusted_series": {
+                "type": "string"
+              },
+              "upper": {
+                "anyOf": [
+                  {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "x": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "untrusted_series",
+              "x",
+              "center",
+              "n",
+              "lower",
+              "upper"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "untrusted_gene_resolution": {
+          "type": "string"
+        },
+        "untrusted_omitted_samples": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "untrusted_probe": {
+          "type": "string"
+        },
+        "untrusted_series_by": {
+          "type": "string"
+        },
+        "untrusted_x_key": {
+          "type": "string"
+        },
+        "untrusted_x_unit": {
+          "type": "string"
+        },
+        "value_units": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "samples",
+        "excluded_by_filters",
+        "summaries",
+        "untrusted_probe",
+        "untrusted_x_key",
+        "untrusted_x_unit",
+        "untrusted_series_by",
+        "normalization",
+        "value_units",
+        "center",
+        "band",
+        "untrusted_omitted_samples",
+        "log_x"
+      ],
+      "type": "object"
+    },
+    "deep_link": {
+      "type": "string"
+    },
+    "deep_link_note": {
+      "type": "string"
+    },
+    "deep_link_unavailable": {
+      "type": "string"
+    },
+    "derived": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "display": {
+      "additionalProperties": true,
+      "properties": {
+        "caption": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "untrusted_metadata_normalization_note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "caption"
+      ],
+      "type": "object"
+    },
+    "figure": {
+      "$ref": "tool-figure-v1.schema.json"
+    },
+    "figure_refused": {
+      "type": "string"
+    },
+    "figure_token": {
+      "type": "string"
+    },
+    "figure_unavailable": {
+      "type": "string"
+    },
+    "html": {
+      "additionalProperties": true,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "parity": {
+          "type": "string"
+        },
+        "parity_note": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_name",
+        "bytes",
+        "sha256",
+        "parity",
+        "parity_note"
+      ],
+      "type": "object"
+    },
+    "html_unavailable": {
+      "type": "string"
+    },
+    "matrix_row_scope": {
+      "additionalProperties": true,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "queries": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "retained_rows": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "source_rows": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_rows",
+        "retained_rows",
+        "queries",
+        "note"
+      ],
+      "type": "object"
+    },
+    "provenance": {
+      "oneOf": [
+        {
+          "$ref": "tool-provenance-v1.schema.json"
+        },
+        {
+          "additionalProperties": true,
+          "properties": {
+            "fetched_at": {
+              "type": "string"
+            },
+            "genefox_cli": {
+              "type": "string"
+            },
+            "parity_screen": {
+              "type": "string"
+            },
+            "transport": {
+              "type": "string"
+            },
+            "untrusted_sources": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "genefox_cli",
+            "transport",
+            "fetched_at",
+            "untrusted_sources"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "recipe": {
+      "additionalProperties": true,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "deep_link": {
+          "type": "string"
+        },
+        "destination_kind": {
+          "type": "string"
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "operation_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "recipe_id": {
+          "type": "string"
+        },
+        "recipe_token": {
+          "type": "string"
+        },
+        "rerunnable": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "untrusted_deep_link": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_name",
+        "bytes",
+        "sha256",
+        "recipe_id",
+        "destination_kind",
+        "format",
+        "rerunnable"
+      ],
+      "type": "object"
+    },
+    "recipe_unavailable": {
+      "type": "string"
+    },
+    "recording_withheld": {
+      "type": "boolean"
+    },
+    "tool": {
+      "const": "geo_numeric_series",
+      "type": "string"
+    },
+    "truncated": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "kept": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "total": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "field",
+            "kept",
+            "total"
+          ],
+          "type": "object"
+        },
+        {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "kept": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "total": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "field",
+              "kept",
+              "total"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "untrusted_deep_link": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool",
+    "data",
+    "display",
+    "provenance",
+    "caveats",
+    "recipe_unavailable"
+  ],
+  "title": "GeneFox geo_numeric_series result",
+  "type": "object",
+  "x-genefox-schema-version": 1,
+  "x-genefox-tool": "geo_numeric_series"
+}

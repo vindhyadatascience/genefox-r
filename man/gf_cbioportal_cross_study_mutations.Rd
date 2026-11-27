@@ -2,8 +2,8 @@
 \name{gf_cbioportal_cross_study_mutations}
 \alias{gf_cbioportal_cross_study_mutations}
 \encoding{UTF-8}
-\title{Compare one gene's protein-altering mutations across 1–32 curated cBioPortal studies in one portal}
-\description{Compare one gene's protein-altering mutations across 1–32 curated cBioPortal studies in one portal. Explicit gene-assayed sample denominators and complete global mutations/fetch pagination; choose molecular_profile_id when a study publishes several mutation profiles. Separate study/sample observations, never pooled unique patients. Missing profiles and empty assay cohorts remain unavailable. Same shared analysis, tables and figures as the GeneFox apps. On request (pdf, html, csv; each off by default), writes one multipart branded PDF, matching HTML and full CSV when an output directory is configured. Latency: 10–180 s.}
+\title{Compare protein-altering mutations in one gene across 1–32 curated cBioPortal studies in one portal}
+\description{Compare protein-altering mutations in one gene across 1–32 curated cBioPortal studies in one portal. Uses gene-assayed sample denominators and complete mutation/fetch pagination. Choose molecular_profile_id when a study has several mutation profiles. Study/sample observations are separate, not pooled unique patients; missing profiles and empty assay cohorts remain unavailable. On request (pdf, html, csv; each off by default), writes a multipart branded PDF, matching HTML and full CSV when an output directory is configured. Latency: 10–180 s.}
 \usage{
 gf_cbioportal_cross_study_mutations(
     session,
@@ -28,5 +28,5 @@ gf_cbioportal_cross_study_mutations(
 \item{portal}{(string, optional; one of "public", "ccdi", "pedcbioportal") public (cBioPortal), ccdi (CCDI cBioPortal, pediatric) or pedcbioportal (refused: it needs a personal data-access token, which this server never takes). NULL omits it.}
 \item{progress_callback}{Optional function receiving runtime progress events; NULL disables progress.}
 }
-\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{cbioportal_cross_study_mutations} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list.}
+\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{cbioportal_cross_study_mutations} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list. Result contract: \url{https://genefox.app/schemas/v1/cbioportal-cross-study-mutations-result-v1.schema.json}.}
 \seealso{\code{\link{gf_scientific_tools}}, \code{\link{gf_tools}}, \code{\link{gf_call}}}

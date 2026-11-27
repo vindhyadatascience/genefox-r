@@ -1,0 +1,31 @@
+---
+title: "Survival"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Survival}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Compare TCGA overall survival between patients split at the median expression of one gene.
+
+Cold-start time: `tcga_survival` 5–30 s; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+survival <- gf_tcga_survival(
+    s,
+    project = "TCGA-BRCA",
+    gene = "ESR1",
+    stratify = "expression",
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+```
+
+![Kaplan-Meier curves for TCGA-BRCA split at median ESR1 expression (`tcga_survival`, 300 dpi)](figures/tcga-survival.png)
+
+## Result contracts
+
+- `tcga_survival`: <https://genefox.app/schemas/v1/tcga-survival-result-v1.schema.json>

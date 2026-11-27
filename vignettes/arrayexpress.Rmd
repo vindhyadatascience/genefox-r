@@ -1,0 +1,27 @@
+---
+title: "ArrayExpress"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ArrayExpress}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Search ArrayExpress studies, read a study record, and load its processed expression.
+
+Studies that publish only raw data cannot be loaded.
+
+Cold-start time: `arrayexpress_search` 1–5 s, `arrayexpress_details` 2–10 s, `arrayexpress_expression` 5–30 s; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+hits <- gf_arrayexpress_search(s, query = "spinal and bulbar muscular atrophy")
+details <- gf_arrayexpress_details(s, accession = "E-MTAB-6986")
+expression <- gf_arrayexpress_expression(s, accession = "E-MTAB-6986")
+```
+
+## Result contracts
+
+- `arrayexpress_search`: <https://genefox.app/schemas/v1/arrayexpress-search-result-v1.schema.json>
+- `arrayexpress_details`: <https://genefox.app/schemas/v1/arrayexpress-details-result-v1.schema.json>
+- `arrayexpress_expression`: <https://genefox.app/schemas/v1/arrayexpress-expression-result-v1.schema.json>

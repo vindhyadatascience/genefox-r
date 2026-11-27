@@ -9,6 +9,7 @@ gf_geo_supplementary_layout(
     session,
     `accession`,
     `identifier_column` = NULL,
+    `platform` = NULL,
     `supplementary_file` = NULL,
     progress_callback = NULL
 )
@@ -17,8 +18,9 @@ gf_geo_supplementary_layout(
 \item{session}{A GeneFox session from \code{\link{gf_session}}.}
 \item{accession}{(string) GEO series accession, e.g. GSE62564.}
 \item{identifier_column}{(string, optional) With supplementary_file: inspect the file keyed by this column (exact header text from identifier_candidates). A column the file lacks, or whose values repeat or are empty, is reported as a refusal with identifier_choice_refused. NULL omits it.}
+\item{platform}{(string, optional) For a series on several platforms (GEO writes one series matrix per platform), the GPL to read, e.g. GPL96. Without it such a series is refused (invalid_argument, field platform) with details.platforms. Links and recipes record it. NULL omits it.}
 \item{supplementary_file}{(string, optional) Exact decoded basename from this series' listing, including its extension. No path, URL or percent encoding. NULL omits it.}
 \item{progress_callback}{Optional function receiving runtime progress events; NULL disables progress.}
 }
-\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{geo_supplementary_layout} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list.}
+\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{geo_supplementary_layout} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list. Result contract: \url{https://genefox.app/schemas/v1/geo-supplementary-layout-result-v1.schema.json}.}
 \seealso{\code{\link{gf_scientific_tools}}, \code{\link{gf_tools}}, \code{\link{gf_call}}}

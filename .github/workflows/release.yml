@@ -1,0 +1,46 @@
+# Attach the R source package to a GitHub release.
+#
+# Push a tag vX.Y.Z whose version equals DESCRIPTION's. This builds genefox_X.Y.Z.tar.gz with
+# R CMD build, checks it (the runtime conformance tests run in the GeneFox source CI), and creates a DRAFT release carrying the tarball and its SHA-256.
+# A person reviews and publishes the draft; until then the download URL does not resolve.
+name: Release source package
+
+on:
+  push:
+    tags: ["v[0-9]*"]
+
+permissions: {}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2
+      - name: The tag must name the package version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="$(sed -n 's/^Version: *//p' DESCRIPTION)"
+          test "$TAG" = "v$version" || { echo "tag $TAG does not match DESCRIPTION version $version"; exit 1; }
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+      - name: Build and check the source package
+        run: |
+          Rscript -e 'install.packages(c("jsonlite", "digest"), repos = "https://cloud.r-project.org")'
+          R CMD build --no-build-vignettes .
+          test -f "genefox_${VERSION}.tar.gz"
+          _R_CHECK_FORCE_SUGGESTS_=false R CMD check --no-manual --no-build-vignettes --ignore-vignettes --no-tests "genefox_${VERSION}.tar.gz"
+          sha256sum "genefox_${VERSION}.tar.gz" > "genefox_${VERSION}.tar.gz.sha256"
+          cat "genefox_${VERSION}.tar.gz.sha256"
+      - name: Draft the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG" --draft --verify-tag --title "genefox $VERSION" \
+            --notes "R source package for GeneFox $VERSION. Install: remotes::install_url(\"https://github.com/${GITHUB_REPOSITORY}/releases/download/${TAG}/genefox_${VERSION}.tar.gz\")" \
+            "genefox_${VERSION}.tar.gz" "genefox_${VERSION}.tar.gz.sha256"

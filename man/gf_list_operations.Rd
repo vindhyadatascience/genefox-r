@@ -14,5 +14,5 @@ gf_list_operations(
 \item{session}{A GeneFox session from \code{\link{gf_session}}.}
 \item{progress_callback}{Optional function receiving runtime progress events; NULL disables progress.}
 }
-\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{list_operations} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list.}
+\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{list_operations} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list. Result contract: \url{https://genefox.app/schemas/v1/list-operations-result-v1.schema.json}.}
 \seealso{\code{\link{gf_scientific_tools}}, \code{\link{gf_tools}}, \code{\link{gf_call}}}

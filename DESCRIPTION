@@ -1,7 +1,7 @@
 Package: genefox
 Type: Package
 Title: Client for the Shared GeneFox Scientific Runtime
-Version: 0.1.0
+Version: 1.1.2
 Authors@R: person("Vindhya Data Science", role = c("aut", "cre", "cph"),
     email = "info@vindhyadatascience.com")
 Description: Access the GeneFox scientific runtime through its native C SDK or
@@ -14,7 +14,6 @@ Imports: jsonlite, digest, methods, grid, tools, stats, utils
 Suggests: processx, tibble, data.table, SummarizedExperiment, S4Vectors, GenomicRanges, IRanges, png, knitr
 NeedsCompilation: yes
 SystemRequirements: C compiler; the separately installed, proprietary GeneFox
-    scientific runtime (native SDK library, ABI 1) or the genefox
-    command-line tool, version 1.1.0 or later.
-URL: https://github.com/vindhyadatascience/genefox-r, https://genefox.app
+    scientific runtime (native SDK library, ABI 1) or GeneFox CLI 1.1.2 or newer.
+URL: https://genefox.app/r, https://github.com/vindhyadatascience/genefox-r
 BugReports: https://github.com/vindhyadatascience/genefox-r/issues

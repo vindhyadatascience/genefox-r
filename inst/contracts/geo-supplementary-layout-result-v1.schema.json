@@ -588,13 +588,45 @@
         },
         "files_truncated": {
           "type": "boolean"
+        },
+        "part_groups": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "files_truncated": {
+                "type": "boolean"
+              },
+              "part_count": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "untrusted_files": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "untrusted_stem": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "untrusted_stem",
+              "part_count",
+              "untrusted_files",
+              "files_truncated"
+            ],
+            "type": "object"
+          },
+          "type": "array"
         }
       },
       "required": [
         "accession",
         "files_total",
         "files",
-        "files_truncated"
+        "files_truncated",
+        "part_groups"
       ],
       "type": "object"
     },

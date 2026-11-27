@@ -18,11 +18,11 @@ gf_geo_collection_summary(
 \arguments{
 \item{session}{A GeneFox session from \code{\link{gf_session}}.}
 \item{accessions}{(array)}
-\item{characteristic_key}{(string, optional) Literal ASCII-case-insensitive substring of a characteristic key, not a regex or synonym. 'inss' matches 'inss stage' and 'stage [inss]'; 'stage' also matches 'stage of development'. NULL omits it.}
+\item{characteristic_key}{(string, optional) Literal ASCII-case-insensitive characteristic-key substring, not regex or synonym; e.g. 'inss' matches 'stage [inss]'. NULL omits it.}
 \item{detail}{(string, optional; one of "fields", "samples") Fields is the default for more than 3 series; samples otherwise. Samples preserves the legacy evidence envelope. NULL omits it.}
-\item{treatment_aliases}{(array, optional) Explicit alternative names for treatment_term (requires it), each matched exactly like the term. Nothing else is expanded. NULL omits it.}
-\item{treatment_term}{(string, optional) Literal ASCII-case-insensitive substring to match in treatment-like characteristics and treatment protocols; no automatic synonyms. NULL omits it.}
+\item{treatment_aliases}{(array, optional) Explicit alternative names for treatment_term, matched like the term; requires treatment_term. NULL omits it.}
+\item{treatment_term}{(string, optional) Literal ASCII-case-insensitive substring in treatment-like characteristics and protocols; no automatic synonyms. NULL omits it.}
 \item{progress_callback}{Optional function receiving runtime progress events; NULL disables progress.}
 }
-\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{geo_collection_summary} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list.}
+\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{geo_collection_summary} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list. Result contract: \url{https://genefox.app/schemas/v1/geo-collection-summary-result-v1.schema.json}.}
 \seealso{\code{\link{gf_scientific_tools}}, \code{\link{gf_tools}}, \code{\link{gf_call}}}

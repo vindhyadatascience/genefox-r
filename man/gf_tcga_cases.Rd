@@ -20,5 +20,5 @@ gf_tcga_cases(
 \item{page_size}{(integer, optional; default 50; range 1..100) Cases per page (the app's page is 50). NULL omits it.}
 \item{progress_callback}{Optional function receiving runtime progress events; NULL disables progress.}
 }
-\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{tcga_cases} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list.}
+\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{tcga_cases} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list. Result contract: \url{https://genefox.app/schemas/v1/tcga-cases-result-v1.schema.json}.}
 \seealso{\code{\link{gf_scientific_tools}}, \code{\link{gf_tools}}, \code{\link{gf_call}}}

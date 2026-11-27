@@ -2,7 +2,11 @@
   "files": {
     ".Rbuildignore": {
       "mode": "100644",
-      "sha256": "2becaa3a4a1eceedc19bcae4bea48cc42e63245eb97639111ee9489cdefccdb5"
+      "sha256": "ba9f97d6913bb8637298bf1890cafecb00af98e23c4f4137d026eccd505ecccb"
+    },
+    ".github/workflows/release.yml": {
+      "mode": "100644",
+      "sha256": "8ba7a945913a3857eed2cceb86f5223737e7c16937277c71adfe80bbf2ebe248"
     },
     "CONTRIBUTING.md": {
       "mode": "100644",
@@ -10,7 +14,7 @@
     },
     "DESCRIPTION": {
       "mode": "100644",
-      "sha256": "46b2b793094e5c1f24e6903325da9760a1f1a5b51b216b5c9471fe9d0dd3f7d2"
+      "sha256": "ff563a897faec59bb4a866664a30ab671627675d812699b91f44abdd0b78080b"
     },
     "LICENSE": {
       "mode": "100644",
@@ -18,7 +22,7 @@
     },
     "NAMESPACE": {
       "mode": "100644",
-      "sha256": "f3082fdf9a8ca4388ff22f9fca7bef2fdb919270afdb120d8c106d7aa9069c2a"
+      "sha256": "2ab90f10cfa1098ff149d64773385aaa1b4e6fd22f066447660566889fc98fc4"
     },
     "R/adapters.R": {
       "mode": "100644",
@@ -30,7 +34,7 @@
     },
     "R/generated.R": {
       "mode": "100644",
-      "sha256": "9119f32e95eec144dc82ba752ea999413a05b24fd356193624811cb97ee717f2"
+      "sha256": "58caddbd7a39d3b8683cd6b8d0a588fbc950ffc3c8eaa227082d5c5e4460d5a4"
     },
     "R/imports.R": {
       "mode": "100644",
@@ -46,7 +50,19 @@
     },
     "README.md": {
       "mode": "100644",
-      "sha256": "a696620bf07bea6abcba699636dbe3a8daad688fccb31f5911b79026d90d06bb"
+      "sha256": "27af30d5a65f89683dce6424b960eb96d3172ec77e93399545764f6b947fd02a"
+    },
+    "_pkgdown.yml": {
+      "mode": "100644",
+      "sha256": "d5b7ee63f1582b6fad53de2fd8076f45efbac6da1d165fa7e995a35c8dc7144e"
+    },
+    "docs-site/llms-full.txt": {
+      "mode": "100644",
+      "sha256": "52003311a8b12368ab22b6e3fbb7199f0d77bdfd8849f38b64bf7f4f90e7fdc2"
+    },
+    "docs-site/llms.txt": {
+      "mode": "100644",
+      "sha256": "fe398bbf353c276ef1779247d190b072009c743e022269e14c5774832be24695"
     },
     "inst/LICENSE-MIT": {
       "mode": "100644",
@@ -58,7 +74,19 @@
     },
     "inst/contracts/account-status-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "b12d9d3d930d669231b044c49185711eedb4bfda4acbff4cf2ead34fc7e12806"
+      "sha256": "f532f5a2f1582e3e45a7bb0444893883dc911a3df8389d9a8d6ff79a98129d60"
+    },
+    "inst/contracts/arrayexpress-details-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "023a3369831956d45b2889d09e7c01c61953c83253165fe346678c5ba4569ed9"
+    },
+    "inst/contracts/arrayexpress-expression-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "c3fe1abb17c9244104857b507920e2da0ffe4f1286000b80d3742412fba5223c"
+    },
+    "inst/contracts/arrayexpress-search-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "29489df51870785fd5995981853d03be5c6248c3c9dab3fdb981780edf78c229"
     },
     "inst/contracts/cbioportal-alterations-result-v1.schema.json": {
       "mode": "100644",
@@ -96,6 +124,10 @@
       "mode": "100644",
       "sha256": "9702a288423b4e770c75a8b49ed350784cfdf7fe9272c8a13407d153350d2eb1"
     },
+    "inst/contracts/gdc-project-summary-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "e222bc3983ab385b75851068ca1f557f9f42de0775c7be7168c319572a401bcd"
+    },
     "inst/contracts/gene-info-result-v1.schema.json": {
       "mode": "100644",
       "sha256": "29a2e52901f7d7b41f952cce7926e8cc74af305988ffc27a491b4483506227db"
@@ -106,15 +138,15 @@
     },
     "inst/contracts/geo-collection-summary-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "f093bd8d42e42caed6b34ebff971da7ebf288b220d524c2681b22119f8bf3353"
+      "sha256": "38982aca12e1869a12dbf6192636eef82d42c96ca6e0ac5b7c7989d0093af515"
     },
     "inst/contracts/geo-dataset-details-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "e45d5348b2b6c11f80dca814ecde900996248ed0035aed0b45f7f89dbb87f246"
+      "sha256": "9d7cddf3ae60050dbed346d37ebbc88c59945b2aa36f649b998dacd9210f2c82"
     },
     "inst/contracts/geo-finder-plan-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "d75e9315562b6583b6422dbde144e75d13936db01dc1664ea3e7a7366722942d"
+      "sha256": "9198e010893dd1e08c5d2f04037d4432bbe7325383050ba4f9b3cca00b470865"
     },
     "inst/contracts/geo-gene-correlation-result-v1.schema.json": {
       "mode": "100644",
@@ -123,6 +155,10 @@
     "inst/contracts/geo-heatmap-result-v1.schema.json": {
       "mode": "100644",
       "sha256": "3c1c32a6603dc77dd3c81068bafe1236ea475369a870caf477277d3c6b1cbe1c"
+    },
+    "inst/contracts/geo-numeric-series-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "8a8f8a34c1300076710a64e2bf0ce22d38b714cb96008275328c767491c0bd3b"
     },
     "inst/contracts/geo-sample-pca-result-v1.schema.json": {
       "mode": "100644",
@@ -138,7 +174,7 @@
     },
     "inst/contracts/geo-supplementary-layout-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "8daf3dc8a75ea2e89fddcb01e4b689484e0d7c44a75b0a14d02d0fbdc6aa498c"
+      "sha256": "6ef8ad35129b181bd2f895c014df843401f4a427d7b3423d035549da57ae6519"
     },
     "inst/contracts/geo-survival-result-v1.schema.json": {
       "mode": "100644",
@@ -151,6 +187,10 @@
     "inst/contracts/gtex-tissue-expression-result-v1.schema.json": {
       "mode": "100644",
       "sha256": "d3cc28a6d5cbcd4c9cdb368929e606795d0fac90adaa17984b043ce577dfffb2"
+    },
+    "inst/contracts/hpa-gene-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "3b12f6927884f1bd25b3e501141efcf69031177f430ef55b87867922ab9fa25a"
     },
     "inst/contracts/imported-de-enrichment-result-v1.schema.json": {
       "mode": "100644",
@@ -170,7 +210,7 @@
     },
     "inst/contracts/open-destination-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "f6541828527acec2ac67e24730bc898ccf7492b81a7860ff5fb14199a4e441bd"
+      "sha256": "152fd40a28229f6266b86b89794b7bb74c6e06056474ab2d296728f25742a7fc"
     },
     "inst/contracts/reference-ccle-expression-result-v1.schema.json": {
       "mode": "100644",
@@ -194,11 +234,11 @@
     },
     "inst/contracts/result-schemas-v1.json": {
       "mode": "100644",
-      "sha256": "4de6419986508ce26b6552697c318d05810482ae68ba25f7cebf231082e09c44"
+      "sha256": "178a34f9888d6e8cb4e61afaa287b6b681bec44e7352a5408aaf001936ff77c0"
     },
     "inst/contracts/survival-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "5cc585757bb72e7405e023043198e4d93028d251b56744fad78f04e10b1fe45f"
+      "sha256": "caacdd0acebac7e4e9f2fa26bca2fde78f24637ddbb7bbe0e0faa4d7b005e8df"
     },
     "inst/contracts/tcga-case-detail-result-v1.schema.json": {
       "mode": "100644",
@@ -215,6 +255,10 @@
     "inst/contracts/tcga-chat-schema-result-v1.schema.json": {
       "mode": "100644",
       "sha256": "638ab037d60a284a502d857699c79c505b7807869f38504a6ef49452a63c3bd3"
+    },
+    "inst/contracts/tcga-cohort-composition-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "b6e05753db273eb931a6b3aa17a9588e4228b72dfbd32ba30a0129c8e36b8f86"
     },
     "inst/contracts/tcga-cohort-summary-result-v1.schema.json": {
       "mode": "100644",
@@ -238,7 +282,7 @@
     },
     "inst/contracts/tcga-gene-signature-result-v1.schema.json": {
       "mode": "100644",
-      "sha256": "70fbc14248b3989c6c63e35673511c52f3c00f12abcd83befb25e709ddc0e89e"
+      "sha256": "fd071749befc80b133b39f295417eaa6033ad72141b0db17dd1fa4eecf5c1bf1"
     },
     "inst/contracts/tcga-heatmap-result-v1.schema.json": {
       "mode": "100644",
@@ -284,45 +328,73 @@
       "mode": "100644",
       "sha256": "08f671bb28004bd990179acd897b3355a54da173141da5625a6236246afb5c13"
     },
+    "inst/contracts/toxicodb-analysis-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "fa1892c216bef2ba8214d84b7079ad59b743b9eac374caa042591b349d2031e4"
+    },
+    "inst/contracts/toxicodb-experiments-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "b481594b6b72e838f02413bfc12749ae5005bdcba75944782267af7c5c02d971"
+    },
+    "inst/contracts/toxicodb-search-result-v1.schema.json": {
+      "mode": "100644",
+      "sha256": "fed4238e59c5696f342bbe91859adb18617fd25189c04442db43fe5a4a690b24"
+    },
+    "man/figures/logo.png": {
+      "mode": "100644",
+      "sha256": "67f8ce4d63ee1fb3b3c002e5614aa734815055f685f6580116c34aa093635222"
+    },
     "man/gf_account_status.Rd": {
       "mode": "100644",
-      "sha256": "b66b55be7a451974ae13d1499e5ff055249ff95010ee03afc1ee0235b3510e8a"
+      "sha256": "9d8d92d815f1c204235f4ee585f03264b678dece007c6497c12464851349aa84"
+    },
+    "man/gf_arrayexpress_details.Rd": {
+      "mode": "100644",
+      "sha256": "05819c39c2321e2998c23792a43eba279e187f26e52e4039b0c4f0307790a8b2"
+    },
+    "man/gf_arrayexpress_expression.Rd": {
+      "mode": "100644",
+      "sha256": "7f719757126cc824e4fd7289b62f78150f83bfd8eb530f1369003c501631110e"
+    },
+    "man/gf_arrayexpress_search.Rd": {
+      "mode": "100644",
+      "sha256": "43dfd0903274c9b1cb2ad06537a68e05de7c0268b45d9e31b4d6df1cdcf4951a"
     },
     "man/gf_cbioportal_alterations.Rd": {
       "mode": "100644",
-      "sha256": "59ddb40c2c93632b6dc47e04cc480e6a305a3995ba392608dce56b5883043abb"
+      "sha256": "495ad17fe633bef277ad6a05521f542880ca7ca27f3e16546bd2eabf19293082"
     },
     "man/gf_cbioportal_composition.Rd": {
       "mode": "100644",
-      "sha256": "49bb11e42bbcb766a4cb96fa1ceb51ca3cbcfb63e9e344a9658566e24b0799ba"
+      "sha256": "a4f3551ceb1b7019e3a4337b09f501578ff044eeae019d7b9062e67017946ed7"
     },
     "man/gf_cbioportal_cross_study_mutations.Rd": {
       "mode": "100644",
-      "sha256": "cb7ca0b285d3aa6166a17e758bdd159d6cd137dc234755195e8a8df823b5ae7f"
+      "sha256": "7a6bb4ddc1d501c319fa0a077299653a05b90d999cb63d1323e7f1e797f7f7bf"
     },
     "man/gf_cbioportal_expression.Rd": {
       "mode": "100644",
-      "sha256": "03dedd6d48126d0f851fb4b91c9a239e1a306ac8ca28fbd199d4435d0d1e7edf"
+      "sha256": "2c9b7c26ec5f86567a6fd6cff42570b8f49584da9cc6c471d25833f53454af6e"
     },
     "man/gf_cbioportal_mutation_burden.Rd": {
       "mode": "100644",
-      "sha256": "207e7c245ba6a3f471655963a1f105fbf653bbb028708fd47cf06ed845a08a79"
+      "sha256": "0336264d5aef7930a20f1f11c12e1282734a949b7a0b59b482128d309030ee88"
     },
     "man/gf_cbioportal_significantly_mutated_genes.Rd": {
       "mode": "100644",
-      "sha256": "041134a25c1276f7ca3afa5495623d3c5c403ae932543712989e324e92e624d9"
+      "sha256": "0608dea6c90f1146d3c2ae946cd2bec8224634c610110dc03a3effb2b784061e"
     },
     "man/gf_cbioportal_structural_variants.Rd": {
       "mode": "100644",
-      "sha256": "07389ff18a672f6c211a821ab119a0726324e20f00ff194a98e7343d02b66eac"
+      "sha256": "ef3a15ed100a7d00d67691157146a16d94dff1e3a8ed92c60a9785bd5fa58f8c"
     },
     "man/gf_cbioportal_studies.Rd": {
       "mode": "100644",
-      "sha256": "b82c00d40f07adab54e1270f79176e284993e232345717fa4666e6a7dca8d239"
+      "sha256": "d9e9711cd1facc9be3e951d3c4e89481dbde58affbf1b1270afdf663c7b9082e"
     },
     "man/gf_cbioportal_treatment_counts.Rd": {
       "mode": "100644",
-      "sha256": "d4d1aca55be43fb4b715b12e6637ba40ac35bd0a06e606e020875577b6eb368c"
+      "sha256": "525e38cc74031cc5e44c0ac5e3e5dc83acfa5325b55703888bb36a5405bc6a80"
     },
     "man/gf_client.Rd": {
       "mode": "100644",
@@ -332,97 +404,109 @@
       "mode": "100644",
       "sha256": "819c4a93aa81c0f46b427cc99e15a5e3068d20969fe8e6372d709d219cf33639"
     },
+    "man/gf_gdc_project_summary.Rd": {
+      "mode": "100644",
+      "sha256": "1472163d13422127b795798efc35cff24871525576b313aa14f2b7302238de69"
+    },
     "man/gf_gene_info.Rd": {
       "mode": "100644",
-      "sha256": "fd3bb48ab536faa0d6e3aa88c86acf3bb2c2b4c636e0ae3e086e396e8a7c411f"
+      "sha256": "a3fbf93e80cf40859cbc9ad40d89b2bb3fa6630e9f8936fa3bbb3acf8a70c653"
     },
     "man/gf_geo_chat_schema.Rd": {
       "mode": "100644",
-      "sha256": "975bb5295d6150e6e035b2211a960fea4121aa2241660206bad7efd2107c487c"
+      "sha256": "80975bcee917181bf8d21f3ad511788673eafc0cfce6a8c4dd6c361cc4352faa"
     },
     "man/gf_geo_collection_summary.Rd": {
       "mode": "100644",
-      "sha256": "155de0f0bd6f7e645649f57b10f870ebaa3ee70dc3ad993719cd0015065e711d"
+      "sha256": "0c0d7ec81eba3822db7adafcb9f588f619b5c19a88decf64d13e58cfde420a39"
     },
     "man/gf_geo_dataset_details.Rd": {
       "mode": "100644",
-      "sha256": "6202730802317412d90c303eb524c244af48151fd7f163b520321a2c8b353241"
+      "sha256": "eeaf64dba9d1542f287386754de8b4d281b6ee43a4ec466b058ec9c24cd3fa6c"
     },
     "man/gf_geo_finder_plan.Rd": {
       "mode": "100644",
-      "sha256": "7f3bb75e898830ce157ffddc8430b4a436ca8ddb155d9e093cecb7bbea717ea2"
+      "sha256": "e50dc817a5be7bdd2bee03f6a9b2d5b0dc9347b73ddbf17554c7a7819f4f6226"
     },
     "man/gf_geo_gene_correlation.Rd": {
       "mode": "100644",
-      "sha256": "ab52e90d9a172c5988f3d8e76caced8e06cda23c73c3d69d7da0cec4f25299a4"
+      "sha256": "384d4e938b645fdd368491a3fa17955e413bef903f7f17c71483432ef5b8fee8"
     },
     "man/gf_geo_heatmap.Rd": {
       "mode": "100644",
-      "sha256": "c20179db531188d45a50320c2a100dbb0e9b0b716d0b13d8db5453119807d8bb"
+      "sha256": "8dbb710a0ccd05266c51535359f509e32b402106546a01cc8ccb55ea98e8d1a1"
+    },
+    "man/gf_geo_numeric_series.Rd": {
+      "mode": "100644",
+      "sha256": "99ee3fdf0c5a7f9167a2b8d86ac450c940ce3d2bc42738b98f69e85d9f9957c7"
     },
     "man/gf_geo_sample_pca.Rd": {
       "mode": "100644",
-      "sha256": "f655124328454a72ac607f09184c88e9422e62fd62a7d58c3d75c41c637e746d"
+      "sha256": "0463cdb3833c58eda96d0d0ec5023eb7c9781e859633097d452e2a6062121958"
     },
     "man/gf_geo_search.Rd": {
       "mode": "100644",
-      "sha256": "75432aa6e1be4de5cb7bf5c8c4301777723743903eab38db788fae8853d6485a"
+      "sha256": "46d2d629197f82fd6fd62c8f81153f5852228abdf65fa98c96a38db675fbaa70"
     },
     "man/gf_geo_series_expression.Rd": {
       "mode": "100644",
-      "sha256": "a11039a5b59e24c3176017842376244da797436e15865b8b7709fb2d3aa9681c"
+      "sha256": "6de48edda48e0e43cbb58a20c19c70b3adb54be1fe5c64825db67888505742a8"
     },
     "man/gf_geo_supplementary_layout.Rd": {
       "mode": "100644",
-      "sha256": "977edfd81194d0c7a339d83ca54e142221dbc67a4df6fc8fa437c8d8bd3a2ed5"
+      "sha256": "78a139233ece9ad5ac2c9a9e8cdba61ea974e01c3ca8750c5639e50852af3afa"
     },
     "man/gf_geo_survival.Rd": {
       "mode": "100644",
-      "sha256": "5ed3a06e659c4fc9ac0fc293731183c58d29d34e036bc09537ed3f1bd04582bd"
+      "sha256": "34bd75b46455fe3ba1def1a65bcd34c241afbd0ababc5a8ecb247d285785251e"
     },
     "man/gf_geo_top_correlates.Rd": {
       "mode": "100644",
-      "sha256": "fb612c8a811835f056c79f621e3a34c94dce20aa047709e2b621a82388552794"
+      "sha256": "64c9645b1f2293fafe08521516666a3a1e3987c522fc5a49bbbc8803dabf1293"
     },
     "man/gf_gtex_tissue_expression.Rd": {
       "mode": "100644",
-      "sha256": "9628aad75cbcad92792425b7584c608a07c5e2397a8752240f2530390fc1867c"
+      "sha256": "4fce837907d2f811e5c855997ab477dfd0588e8a59b6d522b75b74f533439a63"
+    },
+    "man/gf_hpa_gene.Rd": {
+      "mode": "100644",
+      "sha256": "f34c1fcea652d241d373d7e87d920b0d7b81384da10faad7b4666e084716be4a"
     },
     "man/gf_imported_de_enrichment.Rd": {
       "mode": "100644",
-      "sha256": "70497bc4a881cb414a18fb2f4784cbaa7540aa5b5dd7e11ba8a8b4480274935f"
+      "sha256": "d436ce6340a0b959e1c65387c405455cdaabdaf1604d5c21e1206304606aa7c0"
     },
     "man/gf_list_coverage.Rd": {
       "mode": "100644",
-      "sha256": "b5f950e0db588b2f558d28117122e7b1779294b4a4076dcd93e5e93660cb3b8c"
+      "sha256": "73caef5585044f15023135f117c4e8c2047c5ca82a6a4ffcb855c9d290ba6e21"
     },
     "man/gf_list_operations.Rd": {
       "mode": "100644",
-      "sha256": "541dffae618fa8278654ea3b1747bd243c3a3170946bb5d095cdc34f96af1dc5"
+      "sha256": "c362225d4dcd5464c4ab35fef7cfc936c7afdd3baca8aa800a21a505f3f50e6f"
     },
     "man/gf_list_signature_presets.Rd": {
       "mode": "100644",
-      "sha256": "97ad4d96d9c4dcc96e7cd51b8236f042f8164d47d2d14ee86722c83cedadfbd8"
+      "sha256": "2d794b693eeeed65a7f9c5eb00b00c4f93a1618635787568a1f42acce956a008"
     },
     "man/gf_open_destination.Rd": {
       "mode": "100644",
-      "sha256": "3cc1ffb8f7122f3ce9c427dc46e6f5bdf33971effe7be5cc2a353720b3259bf1"
+      "sha256": "77f060b5d96af0ee37534208d94516d559d981c19ed6193b52e339ecf91c9316"
     },
     "man/gf_reference_ccle_expression.Rd": {
       "mode": "100644",
-      "sha256": "cf37dfadb969e1d54a7748fe948df3866a262a1deeae601a9a8dfe7655fee9bc"
+      "sha256": "d739205acce0e75b6bb59590c44812999748bf7ef4444e36f1fba224ee5aba36"
     },
     "man/gf_reference_expression_atlas.Rd": {
       "mode": "100644",
-      "sha256": "8da29db47b936a6ae49bc9b29aa0e138d25924a2c5745b25a9d0fc66d1329706"
+      "sha256": "e8d0a664938dac5ebc995ee09de3a180f0046c3bdf81ca6fe8ceb346444b6b5a"
     },
     "man/gf_reference_expression_atlas_catalog.Rd": {
       "mode": "100644",
-      "sha256": "d0da2338cedb2586ff3aeecdd2848911c235133d5c3bd36e144070719a712a32"
+      "sha256": "e39b4dda690b8509d1efb12a686c6f6244c01ee4d21439f956e4b34878f09b13"
     },
     "man/gf_reference_treehouse_expression.Rd": {
       "mode": "100644",
-      "sha256": "6775c7527067f9623f98ed4145c533c01d9d85d5838905be66789dfd3cc04663"
+      "sha256": "1bfcc845aaaf59892549f85cca3a3ea0063a3a6975a51bf7ae7bdb33bea7f05b"
     },
     "man/gf_result_schemas.Rd": {
       "mode": "100644",
@@ -438,79 +522,123 @@
     },
     "man/gf_tcga_case_detail.Rd": {
       "mode": "100644",
-      "sha256": "0fbcde942e08c6581e7fd22ca812e6ef6d8ace81620f7485f2a2fe1f4ace307e"
+      "sha256": "5cf9833051ca8de4282b3181892c3895baeb756066860852ce7e2a8c7d389ed2"
     },
     "man/gf_tcga_case_expression.Rd": {
       "mode": "100644",
-      "sha256": "cb5271f393f1e7fd0f6a11903e8333852422c2f5d1d9d5ae76b3e1f3e3f5894d"
+      "sha256": "2d49ce5ca7975f7f700b89fbb0bbe4ad3fe627fb77b852d369ab0aa81889b989"
     },
     "man/gf_tcga_cases.Rd": {
       "mode": "100644",
-      "sha256": "306b7be631759eb80f2fcd811a52318d20bd5e0055e68fc6af4fbbdc89b25d2a"
+      "sha256": "5a8411d02cf782e75ffce812ea43c8f287aca3b1bf29ea90e51c4a25a3b7feff"
     },
     "man/gf_tcga_chat_schema.Rd": {
       "mode": "100644",
-      "sha256": "7c39c91808513609aa6e717dbe4ba9b1588338d46da7b135a7af5421ffa527ea"
+      "sha256": "4198410c62341cc015a6d17216e9f782eec7cc043079d6939289c055b76437dd"
+    },
+    "man/gf_tcga_cohort_composition.Rd": {
+      "mode": "100644",
+      "sha256": "1f6d4e9cbe60654c02400c45f257c0f9559b951419d8067ebf463b7ed4b624c5"
     },
     "man/gf_tcga_cohort_summary.Rd": {
       "mode": "100644",
-      "sha256": "fab5b4b33c5e2b1adeca778ef48be5bcee22d354d8e3ad54309e3e41be435250"
+      "sha256": "d0caa2678e359391aaaf1895ba6554d22befd17fc6cef817a3e7a5a02ccf9512"
     },
     "man/gf_tcga_compare_cohorts.Rd": {
       "mode": "100644",
-      "sha256": "267792adafe04b756fe390fb8d1f8da7c7e8ced1e0bb45ffff3da009908f285a"
+      "sha256": "e5ce03dddf86716f0634d308fcd7acb4eadd85b2bf1b9ab65ca9d996a5159e2f"
     },
     "man/gf_tcga_differential_expression.Rd": {
       "mode": "100644",
-      "sha256": "d4960fd9a5365730ae17cc8f23f0dbb9f37b2cb95fd3fa0d0ee3b5f709e83229"
+      "sha256": "2f34862894ac30b2ea35894cd0eeba7202c0656d021ccb6949dcda5bef122f17"
     },
     "man/gf_tcga_expression.Rd": {
       "mode": "100644",
-      "sha256": "2530e0165fb9391bffa8447d11a2f413355c56bcedc1e2285d31277c2523f374"
+      "sha256": "8482e3b663731e9ff3e88d85ca06c48f9df04ae1f74e386e6b40cfa869ca970c"
     },
     "man/gf_tcga_gene_isoforms.Rd": {
       "mode": "100644",
-      "sha256": "3efbefd0597c4e51b9c60643bb15cf09fc51e5e0076c570850e1255f93457ed9"
+      "sha256": "20492d6323914912edcc10118ad7e398682ea8cfec62adfa280c0f43741a6a0f"
     },
     "man/gf_tcga_gene_signature.Rd": {
       "mode": "100644",
-      "sha256": "4fb8d65de092f2fe013e029a3ed3fa13304c2105edb05b93f85df233eb20036a"
+      "sha256": "c4ccbeec4a60cdf9f3d3c1c40e8cd91a29ccf3a4e0e157f81db1495ed0d0f5b9"
     },
     "man/gf_tcga_heatmap.Rd": {
       "mode": "100644",
-      "sha256": "81c3d2df66ea91da6b3beaf7802269ddd2ea51203dd14479235381fd39dba0ab"
+      "sha256": "4c50f2fa1cd2eb4296625818e5c05dbb716ac06764999cbfd535a4c1bbfd25b5"
     },
     "man/gf_tcga_pan_cancer_expression.Rd": {
       "mode": "100644",
-      "sha256": "6c60081094149d0547ebcc9e90c47191badb2b046400bfe7cb222964634f4cab"
+      "sha256": "f2a10f1997346204bcdbbdae6989e98c838d6f4bdc8513086ce4360d225e3b63"
     },
     "man/gf_tcga_pan_cancer_survival.Rd": {
       "mode": "100644",
-      "sha256": "4906308431eeedad4287347d70268d8aebd6edf6fda63d7086c481dd7d383939"
+      "sha256": "748ee825f90000abb6f2e9bf70ae5a6a3b9ee787b8da6c417c4a42568558907a"
     },
     "man/gf_tcga_projects.Rd": {
       "mode": "100644",
-      "sha256": "448f7349adaa3a985a022ef1f684fa71744182bf807b60d695e665f233bbf0dc"
+      "sha256": "661a7178c721e8b011df8dff816088ea6c47edead9b1971651a3234644459ea2"
     },
     "man/gf_tcga_sample_pca.Rd": {
       "mode": "100644",
-      "sha256": "652c6c02c39eb4029e370fc6bcf7f16474eb56f9915477811687dbb2f2723368"
+      "sha256": "b8f5ff6ff56b812c3974fbb9d9e0ebe53514897bfdd4830f2ba7df0f94e33f1c"
     },
     "man/gf_tcga_survival.Rd": {
       "mode": "100644",
-      "sha256": "a0b3cf223fafbde30f186a09022adab495c5b71af5c5ec81af71a60fd9ab0089"
+      "sha256": "1b3aeeb421626913b3798a1475230078f8de83489b1f7b56dc5e24c9f099a311"
     },
     "man/gf_tcga_top_correlates.Rd": {
       "mode": "100644",
-      "sha256": "cacf00f352e4cf355f2aae62d9ef3db1d562c949feb1ae299c3abc5831dc31cc"
+      "sha256": "bde6d7520420450de44d32b7f1518a83a2680cd69e48f05a2211fd7f0b75fae5"
     },
     "man/gf_tcga_tumor_normal.Rd": {
       "mode": "100644",
-      "sha256": "df09e459dd67e7a3c7aaa73500a82dbbefab621137d2670269f403c659c0e429"
+      "sha256": "261ee95d505f2b55ce36758c4316e371f2e7429f47a29473373156695f1fc269"
+    },
+    "man/gf_toxicodb_analysis.Rd": {
+      "mode": "100644",
+      "sha256": "17d612fe698b5685ef0ade9cb8b781cac9127d4e4cf7027969b3fa18a80b0f9e"
+    },
+    "man/gf_toxicodb_experiments.Rd": {
+      "mode": "100644",
+      "sha256": "0718417f87e1b291556401b61dfaeb9142e5bc41439a6e6057f1c505d5e4c749"
+    },
+    "man/gf_toxicodb_search.Rd": {
+      "mode": "100644",
+      "sha256": "0edb4d40e0ec4311e5d0c038ef8e50613a4129ced6753c824c30d3c0cb7d0d87"
     },
     "man/gf_write_import.Rd": {
       "mode": "100644",
       "sha256": "4ec79052346c1ce0a7b19c6eb7415992844659ab1550f3dd3e69e03890c37de8"
+    },
+    "pkgdown/favicon/apple-touch-icon.png": {
+      "mode": "100644",
+      "sha256": "9c28f24e826cf8e0777f30b890f618d9f3f849b87a004b07562e2c7107050962"
+    },
+    "pkgdown/favicon/favicon-96x96.png": {
+      "mode": "100644",
+      "sha256": "f2bb0c95642c81aa5737a6b6246bb1366a756421ac200ea0cae3dd1b35d35c63"
+    },
+    "pkgdown/favicon/favicon.ico": {
+      "mode": "100644",
+      "sha256": "82d46dc9d2cc6b2c556b9fcee163878ac838150fcff8056b713f7091c830ff68"
+    },
+    "pkgdown/favicon/favicon.svg": {
+      "mode": "100644",
+      "sha256": "e6baf9a38efbeecc763b5df20deff34dc034e85d50fc7db11cfe8b70bb2b60c7"
+    },
+    "pkgdown/favicon/site.webmanifest": {
+      "mode": "100644",
+      "sha256": "142c8a6ed94d53f49df8f70afb64620db4f96f41188710c340c9b92a3ed52422"
+    },
+    "pkgdown/favicon/web-app-manifest-192x192.png": {
+      "mode": "100644",
+      "sha256": "167580d18cc26e2266766827c067f34127fdd1f923c45a8c980d23b0deff5356"
+    },
+    "pkgdown/favicon/web-app-manifest-512x512.png": {
+      "mode": "100644",
+      "sha256": "baf270f7bda726afbf35539755cb403cab395c39e1f88777c8657f156f4af143"
     },
     "src/Makevars": {
       "mode": "100644",
@@ -543,19 +671,75 @@
     "tests/runtime.R": {
       "mode": "100644",
       "sha256": "a89c9faa8a9687d8401d58782ed2f5c79ba7e9af60ffc739a0eee6f4b3e2b9fb"
+    },
+    "vignettes/arrayexpress.Rmd": {
+      "mode": "100644",
+      "sha256": "176b7a3724a122e45feb6279bd47e84848dd2b99b0e371096ff2623ceb4b7181"
+    },
+    "vignettes/cbioportal.Rmd": {
+      "mode": "100644",
+      "sha256": "5ad7fef0e0f44fed929d32c56f9e2a010162583d03ebbcef4e34bd2abb7c8520"
+    },
+    "vignettes/de.Rmd": {
+      "mode": "100644",
+      "sha256": "245b84565ffef120bb11f089d3d15437e91202e297adef1667ce613e77a3586c"
+    },
+    "vignettes/figures-recipes.Rmd": {
+      "mode": "100644",
+      "sha256": "79dacb7ef1c280cd1b3c8bbaa2a0c5abf9affe351ff5ebfc6eba56208264ee03"
+    },
+    "vignettes/figures/geo-series-expression.png": {
+      "mode": "100644",
+      "sha256": "252e16402f2511d4320ba76ccade20cbfba581a4727aca8a747ea0a94d3ec53e"
+    },
+    "vignettes/figures/tcga-differential-expression.png": {
+      "mode": "100644",
+      "sha256": "1c01fcc54fc55ca77c5f98fabf3cd0c2ef7d7fc4cca2f2c0b5d76e166a44c0f8"
+    },
+    "vignettes/figures/tcga-expression.png": {
+      "mode": "100644",
+      "sha256": "2bc0ba690e1f572d93ce4ef48b1152b8d4a56f76040108fa0849e98dd5f03a7a"
+    },
+    "vignettes/figures/tcga-sample-pca.png": {
+      "mode": "100644",
+      "sha256": "45fe06d4c6693624af492f0b9cb99dc841ec69c0c7f85d1f2443de54c19ebcca"
+    },
+    "vignettes/figures/tcga-survival.png": {
+      "mode": "100644",
+      "sha256": "f9e7a07f11ffba2df7166395299d728d91bd7433c307817686cd2951afce4d93"
+    },
+    "vignettes/geo.Rmd": {
+      "mode": "100644",
+      "sha256": "18a17a838ef7ef8aaf885f9c52ae4973849375a272364d2a8638a07390efcc83"
+    },
+    "vignettes/getting-started.Rmd": {
+      "mode": "100644",
+      "sha256": "6d4c96b7ce06e09e49889b246735d2c9bbae04305ebd19a0071ab942ade80d21"
+    },
+    "vignettes/pca.Rmd": {
+      "mode": "100644",
+      "sha256": "c20d108db140582a3156f0d32603b36883a226da74b80de1d37e2ccccca266ff"
+    },
+    "vignettes/survival.Rmd": {
+      "mode": "100644",
+      "sha256": "c06dcc302b73fa7606ff93c0cbb287bc5a2160a2ae7c8e49a874a64d7bb8d277"
+    },
+    "vignettes/tcga.Rmd": {
+      "mode": "100644",
+      "sha256": "a9d2145770b1a5b9c797ada55e60558caf3dcfe4a4364de2c0b10708e4e5f405"
     }
   },
   "license": "MIT",
-  "package_version": "0.1.0",
+  "package_version": "1.1.2",
   "repository": "https://github.com/vindhyadatascience/genefox-r",
   "runtime": {
     "abi": 1,
     "bundled": false,
     "license": "proprietary",
     "sdk_contract": 1,
-    "tool_catalogue_sha256": "63913e8992ae8d2d0c6485fcd112f5b8089007d578b09c3aaeb0a3bab907932c"
+    "tool_catalogue_sha256": "b19916ec3eae5d76b99135db8258e57a7c6d12620372fe3c3ffdd94f0298e25f"
   },
   "schema_version": 1,
-  "source_commit": "9b6f3fa3f5b4527d855dd5d232548bcaea75f406",
+  "source_commit": "26a144d30bbdf27c8d09d78f156d279e83c99d49",
   "source_path": "genefox-r"
 }

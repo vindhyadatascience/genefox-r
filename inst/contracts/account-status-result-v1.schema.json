@@ -30,7 +30,7 @@
         "build_flavor": {
           "type": "string"
         },
-        "cloud_assist": {
+        "cloud_ai": {
           "const": "off",
           "type": "string"
         },
@@ -87,7 +87,7 @@
         "entitlement",
         "granted_capabilities",
         "curated_data",
-        "cloud_assist"
+        "cloud_ai"
       ],
       "type": "object"
     },

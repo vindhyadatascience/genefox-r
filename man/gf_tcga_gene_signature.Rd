@@ -21,9 +21,11 @@ gf_tcga_gene_signature(
     `mutation_gene` = NULL,
     `name` = NULL,
     `outcome` = NULL,
+    `outline_text` = NULL,
     `output_name` = NULL,
     `preset` = NULL,
     `recipe` = NULL,
+    `selection` = NULL,
     `show_caption_color_keys` = NULL,
     `show_figure_legends` = NULL,
     `show_row_counts` = NULL,
@@ -32,6 +34,7 @@ gf_tcga_gene_signature(
     `split_scheme` = NULL,
     `stratify` = NULL,
     `survival_detail` = NULL,
+    `survival_median_lines` = NULL,
     `width_in` = NULL,
     progress_callback = NULL
 )
@@ -42,29 +45,32 @@ gf_tcga_gene_signature(
 \item{csv}{(boolean, optional; default false) Also write the screen's CSV export (the app's own rows) under the output directory and return csv.path. NULL omits it.}
 \item{dpi}{(integer, optional; default 300; range 72..1200) Resolution of a custom size (at most 8,192 px a side and 16 MP). NULL omits it.}
 \item{figure}{(boolean, optional; default true) Draw the figure and return its PNG path. NULL omits it.}
-\item{figure_kind}{(string, optional; one of "distribution", "grouped", "survival") Which of the screen's figures to draw: distribution (the score histogram; the default ungrouped), grouped (the box plot; the default with stratify) or survival (the Kaplan-Meier figure). NULL omits it.}
-\item{format}{(string, optional; one of "png", "svg", "tiff"; default "png") File format the figure is written as: png (raster, the default), svg (vector, with its labels as editable text), or tiff (raster, .tif, for journal submission). Every figure is written in all three formats. NULL omits it.}
-\item{genes}{(array, optional) The gene symbols (at least 2 distinct), e.g. ["CD8A","GZMB","PRF1"]; canonicalized through the screen's approved-symbol/curated-alias reference and de-duplicated; original tokens and mapping provenance are retained in gene_resolution. Exactly one of genes and preset. NULL omits it.}
+\item{figure_kind}{(string, optional; one of "distribution", "grouped", "survival") Figure: distribution (score histogram; ungrouped default), grouped (box plot; default with stratify) or survival (Kaplan-Meier). NULL omits it.}
+\item{format}{(string, optional; one of "png", "svg", "tiff"; default "png") Figure format: png (raster, default), svg (vector with editable text), or tiff (raster, .tif); one per run. NULL omits it.}
+\item{genes}{(array, optional) At least 2 distinct gene symbols, canonicalized via the approved-symbol/curated-alias reference and de-duplicated; original tokens and mapping provenance remain in gene_resolution. Exactly one of genes and preset. NULL omits it.}
 \item{height_in}{(number, optional; range 1..40) Custom figure height in inches (with the other side; instead of size). The app's size control range. NULL omits it.}
-\item{html}{(boolean, optional; default false) Also write the screen's single-figure HTML export (the app's own document: title, subtitle, source, the figure and its table, plus the figure's alt text as the image alt and its data table) under the output directory and return html.path. Needs figure. NULL omits it.}
-\item{inline_image}{(boolean, optional; default false) Include MCP image content for a written PNG up to 1,048,576 bytes; larger PNGs disclose inline_image_omitted and remain on disk. NULL omits it.}
+\item{html}{(boolean, optional; default false) Write the screen's single-figure HTML export under the output directory and return html.path. Requires figure. NULL omits it.}
+\item{inline_image}{(boolean, optional; default false) Include PNG MCP image content up to 1,048,576 bytes; larger files stay on disk and disclose inline_image_omitted. NULL omits it.}
 \item{method}{(string, optional; one of "mean_raw", "mean_z_score", "standardized_z_sum", "mean_expression_rank", "within_sample_transcriptome_rank") The estimator (the screen's Scoring Method picker). Default mean_z_score, or the preset's recommended method. NULL omits it.}
 \item{mutation_gene}{(string, optional) With stratify=mutation: the gene whose non-silent mutation status splits patients (Mutant vs WT). NULL omits it.}
 \item{name}{(string, optional) The signature's name (the screen's Signature Name field); default "Signature (n genes)", or the preset's name. NULL omits it.}
 \item{outcome}{(string, optional; one of "OS", "DSS", "PFI", "DFI"; default "OS") The survival association's endpoint: OS (GDC clinical follow-up), or DSS/PFI/DFI (PanCanAtlas, TCGA only). NULL omits it.}
-\item{output_name}{(string, optional) Optional name for the figure file, in place of the tool name and title slug. Letters, digits, '.', '_' and '-' only, starting with a letter or digit, at most 64 characters, no '..'. The file keeps its session number, size and extension, and a name already taken gets -2, -3, and so on. NULL omits it.}
-\item{preset}{(string, optional) The name of one of the app's bundled gene-set presets (its Load preset… list), exactly as returned by list_signature_presets; the preset's recommended method is the default. Exactly one of genes and preset. NULL omits it.}
-\item{recipe}{(boolean, optional; default false) Also write a GeneFox recipe file (the app's recipe format) that reopens this analysis in the app, and return recipe.path. NULL omits it.}
+\item{outline_text}{(boolean, optional; default false) With format svg, write labels as glyph outlines instead of editable text. Refused with other formats. NULL omits it.}
+\item{output_name}{(string, optional) Optional figure name replacing tool and title slug: up to 64 letters, digits, '.', '_' or '-'; starts alphanumeric, no '..'. Session number, size and extension remain; collisions get -2, -3, etc. NULL omits it.}
+\item{preset}{(string, optional) Bundled gene-set preset name exactly as returned by list_signature_presets; its recommended method is the default. Exactly one of genes and preset. NULL omits it.}
+\item{recipe}{(boolean, optional; default false) Write an app recipe that reopens this analysis and return recipe.path. NULL omits it.}
+\item{selection}{(object, optional) Select the cohort by material and cancer context instead of the default patient tumor + normal samples (the GDC sample metadata, never barcodes; see tcga_cohort_composition for the labels). Models are one observation per model sample and never pooled with patient tissue: two or more materials need compare_by material. Survival stays with patient baseline tumors. NULL omits it.}
 \item{show_caption_color_keys}{(boolean, optional; default true) Figure style: a table caption carries the sentence explaining the figure's colors. NULL omits it.}
 \item{show_figure_legends}{(boolean, optional; default true) Figure style: the figure draws its own legend. NULL omits it.}
 \item{show_row_counts}{(boolean, optional; default true) Figure style: a box plot's row labels carry each group's n. NULL omits it.}
 \item{size}{(string, optional; one of "single_column", "one_and_a_half_column", "double_column", "slide", "poster"; default "double_column") Figure size preset (the app's export presets); double_column is the app default. NULL omits it.}
-\item{split_comparison}{(string, optional; one of "extremes", "all"; default "extremes") For tertiles/quartiles: extremes compares the top vs bottom group (log-rank and Cox; the middle patients are counted as excluded); all draws every group with a k-group log-rank and a log-rank test for trend. Median requires extremes. NULL omits it.}
-\item{split_scheme}{(string, optional; one of "median", "tertiles", "quartiles"; default "median") How the survival association cuts the score: median (default), tertiles or quartiles of the endpoint-eligible patients' scores (type-7 cuts, a value tied at a cut stays lower; every group needs 3 patients or the split is refused). The saved view, its link and the recipe record the split. NULL omits it.}
-\item{stratify}{(string, optional; one of "none", "sample_type", "subtype", "mutation", "sex_at_birth", "vital_status", "stage", "race", "ethnicity", "age_group", "diagnosis", "disease_type", "grade"; default "sample_type") Group the scores by this factor (the screen's Stratify Score By; sample_type by default, as every screen opens); none for the ungrouped distribution; mutation needs mutation_gene. NULL omits it.}
+\item{split_comparison}{(string, optional; one of "extremes", "all"; default "extremes") Tertiles/quartiles: extremes compares top vs bottom (log-rank and Cox; middle patients excluded); all draws every group with k-group log-rank and log-rank trend tests. Median requires extremes. NULL omits it.}
+\item{split_scheme}{(string, optional; one of "median", "tertiles", "quartiles"; default "median") median (default), tertiles or quartiles of endpoint-eligible scores; type-7 cuts, ties lower. Groups under 3 patients refuse. Saved view, link and recipe record the split. NULL omits it.}
+\item{stratify}{(string, optional; one of "none", "sample_type", "subtype", "mutation", "sex_at_birth", "vital_status", "stage", "race", "ethnicity", "age_group", "diagnosis", "disease_type", "grade"; default "sample_type") Group scores by this factor (default: sample_type); none for an ungrouped distribution. mutation needs mutation_gene. NULL omits it.}
 \item{survival_detail}{(string, optional; one of "none", "inference", "inferenceAndEffect", "full"; default "inferenceAndEffect") Figure style: how much of a Kaplan-Meier findings block to draw (the app's Figure Style setting). NULL omits it.}
+\item{survival_median_lines}{(boolean, optional; default false) Figure style: draw dashed median survival guides for reached medians. NULL omits it.}
 \item{width_in}{(number, optional; range 1..40) Custom figure width in inches (with the other side; instead of size). The app's size control range. NULL omits it.}
 \item{progress_callback}{Optional function receiving runtime progress events; NULL disables progress.}
 }
-\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{tcga_gene_signature} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list.}
+\value{A \code{gf_result} holding the engine payload, provenance and owned figures for the \code{tcga_gene_signature} tool. The runtime validates every argument and refuses tools absent from its \code{gf_tools()} list. Result contract: \url{https://genefox.app/schemas/v1/tcga-gene-signature-result-v1.schema.json}.}
 \seealso{\code{\link{gf_scientific_tools}}, \code{\link{gf_tools}}, \code{\link{gf_call}}}

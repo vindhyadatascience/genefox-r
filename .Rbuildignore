@@ -2,3 +2,5 @@
 ^CONTRIBUTING\.md$
 ^\.git$
 ^\.gitignore$
+^\.github$
+^pkgdown$

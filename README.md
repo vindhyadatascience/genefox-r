@@ -4,15 +4,21 @@ R access to GeneFox's shared scientific runtime, with data frames, tidyverse-com
 tables and SummarizedExperiment adapters. The wrapper is MIT licensed; the GeneFox
 engine and native runtime remain proprietary and are obtained separately.
 
-This is version 0.1.0 of the package. It requires the GeneFox 1.1.0 runtime (ABI 1, SDK
-contract 1), which is distributed with the GeneFox 1.1.0 CLI; the GeneFox documentation
-describes how to install it.
+This is version 1.1.2 of the package. It requires GeneFox CLI 1.1.2 or newer, which
+includes the GeneFox runtime (ABI 1, SDK contract 1). Get the CLI from the
+[GeneFox downloads page](https://genefox.app/download/) and follow the
+[CLI installation guide](https://genefox.app/docs/install/).
 
-Install the development package from the public repository:
+Install the release's source package from GitHub:
 
 ```r
-remotes::install_github("vindhyadatascience/genefox-r")
+remotes::install_url(
+  "https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz")
 ```
+
+`pak::pak("url::https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz")`
+works too. Without remotes or pak, install `jsonlite` and `digest` first, then
+`install.packages("<that URL>", repos = NULL, type = "source")`.
 
 Or build a local checkout with `R CMD build .` and install its source tarball with
 `R CMD INSTALL`. A C compiler and the dependencies in DESCRIPTION are needed; building
@@ -36,7 +42,7 @@ Use `gf_to_tibble()` or `gf_to_data_table()` for common table frameworks, and `g
 `gf_to_se()` for supported SummarizedExperiment data. GeneFox owns statistical analysis
 and figure rendering; the R package preserves the results, provenance and figures.
 
-See the GeneFox documentation, and report problems in [issues](https://github.com/vindhyadatascience/genefox-r/issues).
+See the [R documentation](https://genefox.app/r/) and report problems in [issues](https://github.com/vindhyadatascience/genefox-r/issues).
 The export's `genefox-source.json` records its source commit and runtime compatibility.
 
 Generated functions cover the free tools of the matching GeneFox runtime release. Inspect
@@ -58,10 +64,10 @@ Building the tarball applies the package's `.Rbuildignore` exclusions. The packa
 check runs the files under `tests/`. Keep the runtime variable set to include the
 actual native and CLI transport checks.
 
-## GeneFox Pro in 1.1.0
+## GeneFox Pro
 
-GeneFox Pro needs a linked GeneFox account, and the 1.1.0 runtime offers no account
-linking outside the GeneFox app. Pro tools and Pro-only arguments (such as figure customization) are therefore not part of this package.
+GeneFox Pro needs a linked GeneFox account. Pro tools and Pro-only arguments (such as
+figure customization) are not part of this package.
 
 ## Data sources and terms
 
@@ -79,7 +85,7 @@ diagnose, treat or make clinical decisions about any person.
 
 ## Notices
 
-See [LICENSE](LICENSE) and [inst/NOTICE](inst/NOTICE). The GeneFox application, the `genefox`
+See [LICENSE](https://github.com/vindhyadatascience/genefox-r/blob/main/LICENSE) and [inst/NOTICE](https://github.com/vindhyadatascience/genefox-r/blob/main/inst/NOTICE). The GeneFox application, the `genefox`
 command-line tool and the GeneFox runtime are proprietary software of Vindhya Data
 Science and are not covered by this package's license. The GeneFox name and logo are not
 licensed, except that the unmodified logo may accompany the credit "made with GeneFox"
@@ -142,7 +148,7 @@ computed endpoint, and the shared survival block counts samples while retaining
 the caller's explicit time-unit mapping. Heatmap color extents remain computed
 output measurements. Scientific numbers and unavailable values retain their types.
 
-All 51 tools in this package's released catalogue have named success contracts.
+Every tool in this package's released catalogue has a named success contract in its result schemas.
 `account_status` preserves granted capability names and helper disclosures.
 `tcga_chat_schema` and `geo_chat_schema` describe read-only snapshots with actual
 analysis input schemas; they do not advertise chat execution. `imported_de_enrichment`

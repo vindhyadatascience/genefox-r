@@ -1,0 +1,551 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "description": "Successful result for gdc_project_summary. Structured failures use tool-error-v1.schema.json. Unknown extension fields are retained.",
+  "properties": {
+    "caveats": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "csv": {
+      "additionalProperties": true,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "columns": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "headers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "headers_truncated": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "rows": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_name",
+        "bytes",
+        "sha256",
+        "rows",
+        "columns",
+        "headers"
+      ],
+      "type": "object"
+    },
+    "csv_unavailable": {
+      "type": "string"
+    },
+    "data": {
+      "additionalProperties": true,
+      "properties": {
+        "cases": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "clinical": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "cases": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "field": {
+                "type": "string"
+              },
+              "gdc_field": {
+                "type": "string"
+              },
+              "open_rna_cases": {
+                "anyOf": [
+                  {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "values": {
+                "items": {
+                  "additionalProperties": true,
+                  "properties": {
+                    "cases": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "cases"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "field",
+              "gdc_field",
+              "cases",
+              "open_rna_cases"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "controlled_files": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "data_categories": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "cases": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "data_category": {
+                "type": "string"
+              },
+              "files": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "data_category",
+              "cases",
+              "files"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "data_release": {
+          "type": "string"
+        },
+        "dbgap_accession": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disease_types": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "files": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "files_by_data_type": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "controlled_files": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "data_type": {
+                "type": "string"
+              },
+              "open_files": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "data_type",
+              "open_files",
+              "controlled_files"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "files_by_workflow": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "controlled_files": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "open_files": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "workflow": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "workflow",
+              "open_files",
+              "controlled_files"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "method_hints": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "advisory_only": {
+                "const": true,
+                "type": "boolean"
+              },
+              "code": {
+                "type": "string"
+              },
+              "evidence": {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": "boolean"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              "message": {
+                "type": "string"
+              },
+              "rule": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "rule",
+              "message",
+              "advisory_only",
+              "evidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "open_files": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "open_rna": {
+          "additionalProperties": true,
+          "properties": {
+            "cases": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "files": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "workflow": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "workflow",
+            "files",
+            "cases"
+          ],
+          "type": "object"
+        },
+        "primary_sites": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "program": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "project_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id",
+        "data_release",
+        "name",
+        "program",
+        "dbgap_accession",
+        "disease_types",
+        "primary_sites",
+        "cases",
+        "files",
+        "open_files",
+        "controlled_files",
+        "open_rna",
+        "data_categories",
+        "files_by_data_type",
+        "files_by_workflow",
+        "clinical",
+        "method_hints"
+      ],
+      "type": "object"
+    },
+    "deep_link": {
+      "type": "string"
+    },
+    "deep_link_note": {
+      "type": "string"
+    },
+    "deep_link_unavailable": {
+      "type": "string"
+    },
+    "display": {
+      "additionalProperties": true,
+      "properties": {
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary"
+      ],
+      "type": "object"
+    },
+    "figure": {
+      "$ref": "tool-figure-v1.schema.json"
+    },
+    "figure_refused": {
+      "type": "string"
+    },
+    "figure_token": {
+      "type": "string"
+    },
+    "figure_unavailable": {
+      "type": "string"
+    },
+    "html": {
+      "additionalProperties": true,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "parity": {
+          "type": "string"
+        },
+        "parity_note": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_name",
+        "bytes",
+        "sha256",
+        "parity",
+        "parity_note"
+      ],
+      "type": "object"
+    },
+    "html_unavailable": {
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "tool-provenance-v1.schema.json"
+    },
+    "recipe": {
+      "additionalProperties": true,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "deep_link": {
+          "type": "string"
+        },
+        "destination_kind": {
+          "type": "string"
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "operation_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "recipe_id": {
+          "type": "string"
+        },
+        "recipe_token": {
+          "type": "string"
+        },
+        "rerunnable": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "untrusted_deep_link": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "file_name",
+        "bytes",
+        "sha256",
+        "recipe_id",
+        "destination_kind",
+        "format",
+        "rerunnable"
+      ],
+      "type": "object"
+    },
+    "recipe_unavailable": {
+      "type": "string"
+    },
+    "tool": {
+      "const": "gdc_project_summary",
+      "type": "string"
+    },
+    "truncated": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "kept": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "total": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "field",
+            "kept",
+            "total"
+          ],
+          "type": "object"
+        },
+        {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "kept": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "total": {
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "field",
+              "kept",
+              "total"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "untrusted_deep_link": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool",
+    "data",
+    "display",
+    "provenance",
+    "caveats"
+  ],
+  "title": "GeneFox gdc_project_summary result",
+  "type": "object",
+  "x-genefox-schema-version": 1,
+  "x-genefox-tool": "gdc_project_summary"
+}

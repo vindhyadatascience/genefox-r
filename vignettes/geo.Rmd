@@ -1,0 +1,36 @@
+---
+title: "GEO"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{GEO}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Search GEO, read a series' samples, and plot one gene across them.
+
+On a microarray series a gene can match several probes. GeneFox then refuses the call and lists the candidates; pass one as `probe`, as below for MYCN.
+
+Cold-start time: `geo_search` 2–10 s, `geo_dataset_details` 1–5 s, `geo_series_expression` 10 s–3 min; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+hits <- gf_geo_search(s, query = "neuroblastoma")
+details <- gf_geo_dataset_details(s, accession = "GSE16476")
+expression <- gf_geo_series_expression(
+    s,
+    accession = "GSE16476",
+    probe = "209757_s_at",
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+```
+
+![MYCN (probe 209757_s_at) expression across the samples of GSE16476 (`geo_series_expression`, 300 dpi)](figures/geo-series-expression.png)
+
+## Result contracts
+
+- `geo_search`: <https://genefox.app/schemas/v1/geo-search-result-v1.schema.json>
+- `geo_dataset_details`: <https://genefox.app/schemas/v1/geo-dataset-details-result-v1.schema.json>
+- `geo_series_expression`: <https://genefox.app/schemas/v1/geo-series-expression-result-v1.schema.json>

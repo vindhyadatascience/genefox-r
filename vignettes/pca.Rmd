@@ -1,0 +1,30 @@
+---
+title: "Sample PCA"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Sample PCA}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Project a cohort's samples onto principal components. PCA describes structure; it is not a test.
+
+Cold-start time: `tcga_sample_pca` 30 s–5 min; cached repeats are faster.
+
+The examples use the session `s` from Getting started and need the GeneFox runtime.
+
+```{r, eval=FALSE}
+pca <- gf_tcga_sample_pca(
+    s,
+    project = "TCGA-BRCA",
+    color_by = "sample_type",
+    width_in = 6.5,
+    height_in = 4,
+    dpi = 300
+)
+```
+
+![TCGA-BRCA samples on the first two principal components, colored by sample type (`tcga_sample_pca`, 300 dpi)](figures/tcga-sample-pca.png)
+
+## Result contracts
+
+- `tcga_sample_pca`: <https://genefox.app/schemas/v1/tcga-sample-pca-result-v1.schema.json>

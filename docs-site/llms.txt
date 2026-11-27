@@ -1,0 +1,19 @@
+# GeneFox R SDK
+
+> Client documentation for the GeneFox runtime.
+
+## Articles
+
+- [Getting started](https://genefox.app/r/articles/getting-started.html)
+- [TCGA and GDC](https://genefox.app/r/articles/tcga.html)
+- [GEO](https://genefox.app/r/articles/geo.html)
+- [cBioPortal](https://genefox.app/r/articles/cbioportal.html)
+- [ArrayExpress](https://genefox.app/r/articles/arrayexpress.html)
+- [Survival](https://genefox.app/r/articles/survival.html)
+- [Sample PCA](https://genefox.app/r/articles/pca.html)
+- [Differential expression and enrichment](https://genefox.app/r/articles/de.html)
+- [Figures and local expression](https://genefox.app/r/articles/figures-recipes.html)
+
+## Contracts
+
+- [Result schemas](https://genefox.app/schemas/v1/)
