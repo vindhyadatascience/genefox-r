@@ -11,7 +11,7 @@ Install GeneFox CLI 1.1.2 or newer using the [CLI installation guide](https://ge
 Then install the package from its GitHub release:
 
 ```r
-remotes::install_url("https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz")
+remotes::install_github("vindhyadatascience/genefox-r@v1.1.2")
 ```
 
 ```{r, eval=FALSE}

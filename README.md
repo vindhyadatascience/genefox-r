@@ -9,16 +9,15 @@ includes the GeneFox runtime (ABI 1, SDK contract 1). Get the CLI from the
 [GeneFox downloads page](https://genefox.app/download/) and follow the
 [CLI installation guide](https://genefox.app/docs/install/).
 
-Install the release's source package from GitHub:
+Install the release from GitHub:
 
 ```r
-remotes::install_url(
-  "https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz")
+remotes::install_github("vindhyadatascience/genefox-r@v1.1.2")
 ```
 
-`pak::pak("url::https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz")`
-works too. Without remotes or pak, install `jsonlite` and `digest` first, then
-`install.packages("<that URL>", repos = NULL, type = "source")`.
+`pak::pak("vindhyadatascience/genefox-r@v1.1.2")` works too. Without remotes or pak,
+install `jsonlite` and `digest` first, then install the release's source package:
+`install.packages("https://github.com/vindhyadatascience/genefox-r/releases/download/v1.1.2/genefox_1.1.2.tar.gz", repos = NULL, type = "source")`.
 
 Or build a local checkout with `R CMD build .` and install its source tarball with
 `R CMD INSTALL`. A C compiler and the dependencies in DESCRIPTION are needed; building
